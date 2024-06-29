@@ -13,7 +13,12 @@ from module.config.utils import deep_get, deep_set
 from module.exception import *
 from module.logger import logger
 from module.notify import handle_notify
+<<<<<<< HEAD
 from module.gg_handler.gg_handler import GGHandler
+=======
+from module.handler.login import LoginHandler
+from module.gg_manager.gg_manager import GGManager
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 g_current_task: str = ""
 
@@ -107,6 +112,7 @@ class AzurLaneAutoScript:
             logger.info('Game server may be under maintenance or network may be broken, check server status now')
             self.checker.check_now()
             if self.checker.is_available():
+<<<<<<< HEAD
                 if self.AutoRestart_Enabled and self.GameRestartBecauseErrorTimes <= self.AutoRestart_AttemptsToRestart:
                     if self.AutoRestart_NotifyWhenAutoRestart:
                         handle_notify(
@@ -132,6 +138,19 @@ class AzurLaneAutoScript:
                     from module.handler.login import LoginHandler
                     LoginHandler(self.config, self.device).app_restart()
                     return False
+=======
+                logger.critical('Game page unknown')
+                self.save_error_log()
+                handle_notify(
+                    self.config.Error_OnePushConfig,
+                    title=f"Alas <{self.config_name}> crashed(崩溃了)",
+                    content=f"<{self.config_name}> GamePageUnknownError(游戏页面未知错误)",
+                )
+                logger.info('Restart to reset Game page in 10 seconds')
+                self.device.sleep(10)
+                LoginHandler(self.config, self.device).app_restart()
+                return False
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
             else:
                 self.checker.wait_until_available()
                 return False
@@ -140,11 +159,12 @@ class AzurLaneAutoScript:
             logger.critical('This is likely to be a mistake of developers, but sometimes just random issues')
             handle_notify(
                 self.config.Error_OnePushConfig,
-                title=f"Alas <{self.config_name}> crashed",
-                content=f"<{self.config_name}> ScriptError",
+                title=f"Alas <{self.config_name}> crashed(崩溃了)",
+                content=f"<{self.config_name}> ScriptError(脚本错误)",
             )
             exit(1)
         except RequestHumanTakeover:
+<<<<<<< HEAD
             if self.AutoRestart_Enabled and self.GameRestartBecauseErrorTimes <= self.AutoRestart_AttemptsToRestart:
                 if self.AutoRestart_NotifyWhenAutoRestart:
                     handle_notify(
@@ -176,13 +196,26 @@ class AzurLaneAutoScript:
             self.config.task_call('Restart')
             self.device.sleep(10)
             return False
+=======
+            logger.critical('Request human takeover')
+            handle_notify(
+                self.config.Error_OnePushConfig,
+                title=f"Alas <{self.config_name}> crashed(崩溃了)",
+                content=f"<{self.config_name}> RequestHumanTakeover(需要手动介入)",
+            )
+            exit(1)
+        except AutoSearchSetError:
+            logger.critical('Auto search could not be set correctly. Maybe your ships in hard mode are changed.')
+            logger.critical('Request human takeover.')
+            exit(1)
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
         except Exception as e:
             logger.exception(e)
             self.save_error_log()
             handle_notify(
                 self.config.Error_OnePushConfig,
-                title=f"Alas <{self.config_name}> crashed",
-                content=f"<{self.config_name}> Exception occured",
+                title=f"Alas <{self.config_name}> crashed(崩溃了)",
+                content=f"<{self.config_name}> Exception occured(发生异常)",
             )
             exit(1)
 
@@ -217,21 +250,18 @@ class AzurLaneAutoScript:
                 f.writelines(lines)
 
     def restart(self):
-        from module.handler.login import LoginHandler
         LoginHandler(self.config, device=self.device).app_restart()
 
     def start(self):
-        from module.handler.login import LoginHandler
         LoginHandler(self.config, device=self.device).app_start()
 
     def goto_main(self):
-        from module.handler.login import LoginHandler
         from module.ui.ui import UI
         if self.device.app_is_running():
-            logger.info('App is already running, goto main page')
+            logger.info('Game is already running, goto main page')
             UI(self.config, device=self.device).ui_goto_main()
         else:
-            logger.info('App is not running, start app and goto main page')
+            logger.info('Game is not running, start game and goto main page')
             LoginHandler(self.config, device=self.device).app_start()
             UI(self.config, device=self.device).ui_goto_main()
 
@@ -282,6 +312,10 @@ class AzurLaneAutoScript:
     def freebies(self):
         from module.freebies.freebies import Freebies
         Freebies(config=self.config, device=self.device).run()
+
+    def dashboard_update(self):
+        from module.daily.dashboard import DashboardUpdate
+        DashboardUpdate(config=self.config, device=self.device).run()
 
     def minigame(self):
         from module.minigame.minigame import Minigame
@@ -392,17 +426,22 @@ class AzurLaneAutoScript:
         from module.campaign.os_run import OSCampaignRun
         OSCampaignRun(config=self.config, device=self.device).opsi_cross_month()
 
+    def main_normal(self):
+        from module.campaign.run import CampaignRun
+        CampaignRun(config=self.config, device=self.device).run(
+            name=self.config.Campaign_Name, folder=self.config.Campaign_Event, mode=self.config.Campaign_Mode)
+
+    def main_hard(self):
+        from module.campaign.run import CampaignRun
+        CampaignRun(config=self.config, device=self.device).run(
+            name=self.config.Campaign_Name, folder=self.config.Campaign_Event, mode=self.config.Campaign_Mode)
+
     def main(self):
         from module.campaign.run import CampaignRun
         CampaignRun(config=self.config, device=self.device).run(
             name=self.config.Campaign_Name, folder=self.config.Campaign_Event, mode=self.config.Campaign_Mode)
-
+        
     def main2(self):
-        from module.campaign.run import CampaignRun
-        CampaignRun(config=self.config, device=self.device).run(
-            name=self.config.Campaign_Name, folder=self.config.Campaign_Event, mode=self.config.Campaign_Mode)
-
-    def main3(self):
         from module.campaign.run import CampaignRun
         CampaignRun(config=self.config, device=self.device).run(
             name=self.config.Campaign_Name, folder=self.config.Campaign_Event, mode=self.config.Campaign_Mode)
@@ -569,10 +608,18 @@ class AzurLaneAutoScript:
         self.gg_check()
         logger.set_file_logger(self.config_name)
         logger.info(f'Start scheduler loop: {self.config_name}')
+<<<<<<< HEAD
         # Try forced task_call restart to reset GG status
         self.checker.wait_until_available()
         GGHandler(config=self.config, device=self.device).handle_restart_before_tasks()
         check_fail = 0
+=======
+
+        # Try forced task_call restart to reset GG status
+        self.checker.wait_until_available()
+        GGManager(config=self.config, device=self.device).handle_restart_before_tasks()
+        check_fail=0
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
         while 1:
             # Check update event from GUI
             if self.stop_event is not None:
@@ -603,12 +650,16 @@ class AzurLaneAutoScript:
                 if self.is_first_task:
                     logger.info('Skip task `Restart` at scheduler start')
                 else:
+<<<<<<< HEAD
                     from module.handler.login import LoginHandler
+=======
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
                     LoginHandler(self.config, self.device).app_restart()
                 self.config.task_delay(server_update=True)
                 del_cached_property(self, 'config')
                 continue
 
+<<<<<<< HEAD
             # Check GG config before a task begins (to reset temporary config), and decide to enable it.
             GGHandler(config=self.config, device=self.device).check_config()
             try:
@@ -622,6 +673,24 @@ class AzurLaneAutoScript:
                 else:
                     logger.critical('Maybe your emulator died, trying to restart it')
                     self.device.emulator_start()
+=======
+            try:
+                check_fail = 0
+                GGManager(config=self.config, device=self.device).check_then_set_gg_status(inflection.underscore(task))
+            except GameStuckError:
+                del_cached_property(self, 'config')
+                check_fail += 1
+                if check_fail <=3:
+                    continue
+                else:
+                    handle_notify(self.config.Error_OnePushConfig,
+                                  title=f"Alas <{self.config.config_name}> crashed",
+                                  content=f"<{self.config.config_name}> "
+                                          f"RequestHumanTakeover.\n"
+                                          f"Maybe your emulator died."
+                                  )
+                    exit(1)
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
             # Run
             logger.info(f'Scheduler: Start task `{task}`')
@@ -646,6 +715,7 @@ class AzurLaneAutoScript:
             failed = 0 if success else failed + 1
             deep_set(self.failure_record, keys=task, value=failed)
             if failed >= 3:
+<<<<<<< HEAD
                 if self.AutoRestart_Enabled and self.GameRestartBecauseErrorTimes <= self.AutoRestart_AttemptsToRestart:
                     failed = 0
                     if self.AutoRestart_NotifyWhenAutoRestart:
@@ -671,6 +741,20 @@ class AzurLaneAutoScript:
                         content=f"<{self.config_name}> RequestHumanTakeover\nTask `{task}` failed 3 or more times.",
                     )
                     exit(1)
+=======
+                logger.critical(f"Task `{task}` failed 3 or more times.")
+                logger.critical("Possible reason #1: You haven't used it correctly. "
+                                "Please read the help text of the options.")
+                logger.critical("Possible reason #2: There is a problem with this task. "
+                                "Please contact developers or try to fix it yourself.")
+                logger.critical('Request human takeover')
+                handle_notify(
+                    self.config.Error_OnePushConfig,
+                    title=f"Alas <{self.config_name}> crashed(崩溃了)",
+                    content=f"<{self.config_name}> RequestHumanTakeover(需要手动介入)\nTask `{task}` failed 3 or more times(失败3次或更多次).",
+                )
+                exit(1)
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
             if success:
                 del_cached_property(self, 'config')

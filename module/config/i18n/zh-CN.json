@@ -46,16 +46,20 @@
       "name": "重启设置",
       "help": ""
     },
+    "MainNormal": {
+      "name": "主线图-普通",
+      "help": ""
+    },
+    "MainHard": {
+      "name": "主线图-困难",
+      "help": ""
+    },
     "Main": {
       "name": "主线图",
       "help": ""
     },
     "Main2": {
       "name": "主线图-2",
-      "help": ""
-    },
-    "Main3": {
-      "name": "主线图-3",
       "help": ""
     },
     "GemsFarming": {
@@ -186,6 +190,10 @@
       "name": "小游戏",
       "help": "游戏币不会溢出时自动领取游戏币，有游戏币且奖励没满时自动进行小游戏"
     },
+    "DashboardUpdate": {
+      "name": "更新仪表盘",
+      "help": ""
+    },
     "OpsiGeneral": {
       "name": "通用设置",
       "help": ""
@@ -266,8 +274,13 @@
       "name": "游戏管理器(未完成)",
       "help": ""
     },
+<<<<<<< HEAD
     "SomethingSpecial": {
       "name": "特别的东西",
+=======
+    "GGManager": {
+      "name": "GG管理器",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "help": ""
     }
   },
@@ -834,9 +847,9 @@
       "help": "达成地图 100% 通关，达成三星通关，达成安全海域，\n或达成安全海域但不打三星后停止",
       "non_stop": "否",
       "100_percent_clear": "100%通关",
+      "threat_safe_without_3_stars": "100%通关 + 安全海域",
       "map_3_stars": "100%通关 + 三星",
-      "threat_safe": "100%通关 + 三星 + 安全海域",
-      "threat_safe_without_3_stars": "100%通关 + 安全海域"
+      "threat_safe": "100%通关 + 三星 + 安全海域"
     },
     "StageIncrease": {
       "name": "达成关卡成就后向前开荒",
@@ -874,7 +887,7 @@
       "diamond": "轮形阵"
     },
     "Fleet1Mode": {
-      "name": "一队自律模式",
+      "name": "一队行动模式",
       "help": "",
       "combat_auto": "自律战斗",
       "combat_manual": "手操",
@@ -908,7 +921,7 @@
       "diamond": "轮形阵"
     },
     "Fleet2Mode": {
-      "name": "二队自律模式",
+      "name": "二队行动模式",
       "help": "",
       "combat_auto": "自律战斗",
       "combat_manual": "手操",
@@ -1369,7 +1382,7 @@
     },
     "TimeLimit": {
       "name": "活动时间限制",
-      "help": "当本地时间超过给定数值后，禁用所有活动任务，'2020-01-01 00:00:00' 表示不限制，触发一次后时间将被重置\n设置后能防止活动结束后忘记关闭任务的事情发生"
+      "help": "当本地时间超过给定数值后，禁用所有活动任务，'2023-01-01 00:00:00' 表示不限制，触发一次后时间将被重置\n设置后能防止活动结束后忘记关闭任务的事情发生"
     }
   },
   "TaskBalancer": {
@@ -1388,9 +1401,10 @@
     "TaskCall": {
       "name": "物资过低时呼叫任务X",
       "help": "提醒: 玩家需提前设置好被调用的任务，否则将不会作用",
+      "MainNormal": "主线图-普通",
+      "MainHard": "主线图-困难",
       "Main": "主线图",
-      "Main2": "主线图-2",
-      "Main3": "主线图-3"
+      "Main2": "主线图-2"
     }
   },
   "EventDaily": {
@@ -2151,6 +2165,16 @@
       "help": ""
     }
   },
+  "DashboardUpdate": {
+    "_info": {
+      "name": "更新仪表盘",
+      "help": "活动PT及大世界相关数据不支持更新"
+    },
+    "Update": {
+      "name": "全部更新",
+      "help": "若取消，则仅更新石油、物资、钻石、魔方数据"
+    }
+  },
   "Daily": {
     "_info": {
       "name": "每日任务",
@@ -2278,7 +2302,7 @@
   "Hard": {
     "_info": {
       "name": "困难图",
-      "help": "运行每日困难图需要解锁周回模式，未解锁前应使用主线图功能"
+      "help": "运行每日困难图需要解锁周回模式，未解锁前应使用主线图-困难功能"
     },
     "HardStage": {
       "name": "困难关卡",
@@ -2463,7 +2487,11 @@
       "4": "4"
     },
     "FleetMode": {
+<<<<<<< HEAD
       "name": "自律模式",
+=======
+      "name": "行动模式",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "help": "",
       "combat_auto": "自律战斗",
       "combat_manual": "手操",
@@ -2676,7 +2704,14 @@
     },
     "Repository": {
       "name": "反和谐仓库",
-      "help": "一般不需要修改\n仓库 https://github.com/LmeSzinc/AzurLaneUncensored\n国内镜像（默认） https://e.coding.net/llop18870/alas/AzurLaneUncensored.git"
+      "help": "一般不需要修改\n仓库（默认） https://github.com/LmeSzinc/AzurLaneUncensored"
+    },
+    "Option": {
+      "name": "反和谐设置",
+      "help": "选择需要的反和谐文件",
+      "all": "全部反和谐",
+      "main": "普通反和谐",
+      "only_patch": "仅舰名反和谐"
     }
   },
   "GameManager": {
@@ -2689,6 +2724,7 @@
       "help": "游戏被强制结束后自动登录游戏"
     }
   },
+<<<<<<< HEAD
   "GGHandler": {
     "_info": {
       "name": "GG管理器",
@@ -2736,6 +2772,53 @@
       "help": "会关闭倍率的项目，建议敏感项目全关。打开的项目导致封号后果自负。\n敏感项目：共斗，Meta与演习\n注意：战力限制依旧生效，但大舰队没有这个玩意无法检测\n（虽然大舰队无所谓，只是一直有人问才加的）。",
       "disable_all_dangerous_task": "禁用敏感项目",
       "disable_guild_and_dangerous": "禁用大舰队，以及敏感项目",
+=======
+  "GGManager": {
+    "_info": {
+      "name": "GG管理器",
+      "help": "请在旧版UI中将GG悬浮窗遮挡住石油图标（透明度调至90%以上）"
+    },
+    "Enable": {
+      "name": "启用倍率",
+      "help": "运行演习、共斗、Meta时会自动关闭倍率"
+    },
+    "RestartEverytime": {
+      "name": "重启",
+      "help": "强制开启，初始化倍率，防止误操作"
+    },
+    "GGMultiplyingFactor": {
+      "name": "倍率数值",
+      "help": "默认数值200\n建议数值1-1000，乱输将使用默认倍率运行"
+    },
+    "GGAction": {
+      "name": "倍率操作方式",
+      "help": "如为手动，第一次使用需要指定lua路径\n手动方式可运行自己的lua，但操作逻辑必须和原版一样，否则报错",
+      "auto": "自动",
+      "manual": "手动"
+    },
+    "GGLuapath": {
+      "name": "lua路径",
+      "help": "填写lua路径，如为自动请勿填入（不会检查路径是否正确）"
+    },
+    "GGLuapathRecord": {
+      "name": "lua路径记录",
+      "help": "自动勾选，非设备更换、lua路径修改及倍率操作方式切换请勿取消"
+    },
+    "GGPackageName": {
+      "name": "GG包名",
+      "help": "GG安装后请自行访问/Android/data文件夹查看包名，应是com.一串乱码"
+    },
+    "GGLowLimit": {
+      "name": "最低战力阈值",
+      "help": "前排舰队最低战力，低于此战力将不会进行出击"
+    },
+    "DisabledTask": {
+      "name": "禁用倍率的任务",
+      "help": "需要关闭倍率的任务，建议敏感任务全关，如导致封号后果自负\n敏感任务：共斗，极地风暴，Meta与演习",
+      "disable_guild_and_dangerous": "禁用大舰队及敏感任务",
+      "disable_all_dangerous_task": "禁用敏感任务",
+      "disable_meta_and_exercise": "禁用Meta和演习",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "disable_exercise": "禁用演习",
       "enable_all": "百无禁忌"
     }
@@ -2743,7 +2826,11 @@
   "PowerLimit": {
     "_info": {
       "name": "战力限制",
+<<<<<<< HEAD
       "help": "敏感项目前的最后一道保险\n若前排战力高于此值强制重启，并视为需要使用GG（打开GG开关以及GG自动重启倍率开关）"
+=======
+      "help": "运行敏感任务前的最后一道保险，若前排战力高于此值强制重启"
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     },
     "Exercise": {
       "name": "演习",
@@ -2756,6 +2843,7 @@
     "Ash": {
       "name": "余烬信标",
       "help": ""
+<<<<<<< HEAD
     }
   },
   "ChangeShip": {
@@ -3102,6 +3190,14 @@
       "help": "InstanceRestart.HasRestarted.help"
     }
   },
+=======
+    },
+    "Coalition": {
+      "name": "极地风暴",
+      "help": ""
+    }
+  },
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
   "Storage": {
     "_info": {
       "name": "任务状态",
@@ -3113,6 +3209,10 @@
     }
   },
   "Gui": {
+    "Login": {
+      "Login": "请在下面登录",
+      "LoginError": "密码错误"
+    },
     "Aside": {
       "Install": "安装",
       "Home": "主页",
@@ -3142,7 +3242,9 @@
       "DisableTranslateMode": "点击这里关闭翻译模式",
       "ConfigSaved": "设置已保存",
       "AlasIsRunning": "调度器已在运行中",
-      "ClickToUpdate": "有更新可用，点击这里进行更新"
+      "ClickToUpdate": "有更新可用，点击这里进行更新",
+      "AlasRestart": "Alas将于3秒后重启",
+      "ReloadEnabled": "重新加载未启用"
     },
     "Status": {
       "Running": "运行中",
@@ -3159,11 +3261,14 @@
       "Translate": "翻译",
       "Update": "更新器",
       "Remote": "远程控制",
-      "Utils": "工具"
+      "Utils": "工具",
+      "RaiseException": "抛出异常",
+      "ForceRestart": "强制重启"
     },
     "Overview": {
       "Scheduler": "调度器",
       "Dashboard": "仪表盘",
+<<<<<<< HEAD
       "SecondsAgo": "秒前",
       "MinutesAgo": "分钟前",
       "HoursAgo": "小时前",
@@ -3183,11 +3288,34 @@
       "Medal": "勋章",
       "Core": "核心数据",
       "GuildCoin": "舰队币",
+=======
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "Log": "日志",
       "Running": "运行中",
       "Pending": "队列中",
       "Waiting": "等待中",
       "NoTask": "无任务"
+    },
+    "Dashboard": {
+      "TimeError": "时间错误",
+      "JustNow": "刚刚",
+      "MinutesAgo": "分钟前",
+      "HoursAgo": "小时前",
+      "DaysAgo": "天前",
+      "LongTimeAgo": "很久之前",
+      "NoData": "无数据",
+      "Oil": "石油",
+      "Coin": "物资",
+      "Gem": "钻石",
+      "Cube": "魔方",
+      "Pt": "活动PT",
+      "YellowCoin": "大世界黄币",
+      "PurpleCoin": "大世界紫币",
+      "ActionPoint": "行动力",
+      "Merit": "功勋",
+      "Medal": "勋章",
+      "Core": "核心数据",
+      "GuildCoin": "舰队币"
     },
     "AddAlas": {
       "PopupTitle": "添加新配置",

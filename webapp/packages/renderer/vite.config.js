@@ -56,6 +56,17 @@ const config = {
     target: `chrome${chrome}`,
     outDir: 'dist',
     assetsDir: '.',
+<<<<<<< HEAD
+=======
+    minify: process.env.MODE === 'development' ? false : 'terser',
+    terserOptions: {
+      ecma: 2020,
+      compress: {
+        passes: 2,
+      },
+      safari10: false,
+    },
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     rollupOptions: {
       input: join(PACKAGE_ROOT, 'index.html'),
     },

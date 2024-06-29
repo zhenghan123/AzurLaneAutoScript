@@ -259,6 +259,10 @@ class Combat(Level, HPBalancer, Retirement, SubmarineCall, CombatAuto, CombatMan
                 continue
             if self.handle_popup_confirm('COMBAT_EXECUTE'):
                 continue
+            if self.appear_then_click(CONTINUE_CONFIRM):
+                continue
+            if self.appear_then_click(ASH_CONTINUE_CONFIRM):
+                continue
 
             # End
             if self.handle_battle_status(drop=drop) \

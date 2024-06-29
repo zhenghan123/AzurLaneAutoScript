@@ -1,7 +1,11 @@
 from module.ocr.ocr import Digit
 from module.shop.assets import *
 from module.ui.ui import UI
+<<<<<<< HEAD
 from module.log_res.log_res import LogRes
+=======
+from module.log_res import LogRes
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 OCR_SHOP_GOLD_COINS = Digit(SHOP_GOLD_COINS, letter=(239, 239, 239), name='OCR_SHOP_GOLD_COINS')
 OCR_SHOP_GEMS = Digit(SHOP_GEMS, letter=(255, 243, 82), name='OCR_SHOP_GEMS')

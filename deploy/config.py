@@ -60,6 +60,7 @@ class ConfigModel:
     Password: Optional[str] = None
     CDN: Union[str, bool] = False
     Run: Optional[str] = None
+    AppAsarUpdate: bool = True
 
     # Dynamic
     GitOverCdn: bool = False

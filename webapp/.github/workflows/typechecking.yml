@@ -14,8 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+<<<<<<< HEAD
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+=======
+      - uses: actions/checkout@v4.1.2
+      - uses: actions/setup-node@v4.0.2
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
         with:
           node-version: 16 # Need for npm >=7.7
           cache: 'npm'

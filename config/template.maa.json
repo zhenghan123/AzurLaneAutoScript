@@ -29,7 +29,7 @@
   "MaaStartup": {
     "Scheduler": {
       "Enable": true,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaStartup",
       "SuccessInterval": 0,
       "FailureInterval": 0,
@@ -42,7 +42,7 @@
   "MaaAnnihilation": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaAnnihilation",
       "SuccessInterval": 60,
       "FailureInterval": 120,
@@ -66,7 +66,7 @@
   "MaaMaterial": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaMaterial",
       "SuccessInterval": 60,
       "FailureInterval": 240,
@@ -90,7 +90,7 @@
   "MaaFight": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaFight",
       "SuccessInterval": 240,
       "FailureInterval": 120,
@@ -124,7 +124,7 @@
   "MaaRecruit": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaRecruit",
       "SuccessInterval": 180,
       "FailureInterval": 120,
@@ -149,7 +149,7 @@
   "MaaInfrast": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaInfrast",
       "SuccessInterval": 60,
       "FailureInterval": 120,
@@ -179,7 +179,7 @@
   "MaaMall": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaMall",
       "SuccessInterval": 60,
       "FailureInterval": 120,
@@ -201,7 +201,7 @@
   "MaaAward": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaAward",
       "SuccessInterval": 60,
       "FailureInterval": 120,
@@ -220,7 +220,7 @@
   "MaaRoguelike": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaRoguelike",
       "SuccessInterval": 60,
       "FailureInterval": 120,
@@ -246,7 +246,7 @@
   "MaaReclamationAlgorithm": {
     "Scheduler": {
       "Enable": false,
-      "NextRun": "2020-01-01 04:00:00",
+      "NextRun": "2023-01-01 04:00:00",
       "Command": "MaaReclamationAlgorithm",
       "SuccessInterval": 60,
       "FailureInterval": 120,

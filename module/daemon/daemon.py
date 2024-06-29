@@ -2,6 +2,7 @@ from module.campaign.campaign_base import CampaignBase
 from module.daemon.daemon_base import DaemonBase
 from module.exception import CampaignEnd
 from module.handler.ambush import MAP_AMBUSH_EVADE
+from module.combat.assets import CONTINUE_CONFIRM
 from module.map.map_operation import FLEET_PREPARATION, MAP_PREPARATION
 
 
@@ -12,6 +13,9 @@ class AzurLaneDaemon(DaemonBase, CampaignBase):
 
             # If is running a combat, do nothing.
             if self.is_combat_executing():
+                continue
+
+            if self.appear_then_click(CONTINUE_CONFIRM):
                 continue
 
             # Combat

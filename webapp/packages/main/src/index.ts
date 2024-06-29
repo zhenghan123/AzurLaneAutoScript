@@ -30,6 +30,7 @@ if (!isSingleInstance) {
  * Also `in-process-gpu` to avoid creating a gpu process which may `exited unexpectedly`
  * See https://github.com/electron/electron/issues/30966
  */
+<<<<<<< HEAD
 app.disableHardwareAcceleration();
 app.commandLine.appendSwitch('disable-gpu');
 app.commandLine.appendSwitch('disable-software-rasterizer');
@@ -38,6 +39,165 @@ app.commandLine.appendSwitch('disable-gpu-rasterization');
 app.commandLine.appendSwitch('disable-gpu-sandbox');
 app.commandLine.appendSwitch('in-process-gpu');
 app.commandLine.appendSwitch('no-sandbox');
+=======
+const alas = new PyShell(webuiPath, webuiArgs);
+alas.end(function (err: string) {
+  // if (err) throw err;
+});
+
+
+let mainWindow: BrowserWindow | null = null;
+
+const createWindow = async () => {
+  mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 880,
+    show: false, // Use 'ready-to-show' event to show window
+    frame: false,
+    icon: path.join(__dirname, './buildResources/icon.ico'),
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,   // Spectron tests can't work with contextIsolation: true
+      nativeWindowOpen: true,
+      // preload: join(__dirname, '../../preload/dist/index.cjs'),
+    },
+  });
+
+  /**
+   * If you install `show: true` then it can cause issues when trying to close the window.
+   * Use `show: false` and listener events `ready-to-show` to fix these issues.
+   *
+   * @see https://github.com/electron/electron/issues/25012
+   */
+  mainWindow.on('ready-to-show', () => {
+    mainWindow?.show();
+
+    // Hide menu
+    const {Menu} = require('electron');
+    Menu.setApplicationMenu(null);
+
+    if (import.meta.env.MODE === 'development') {
+      mainWindow?.webContents.openDevTools();
+    }
+  });
+
+  mainWindow.on('focus', function () {
+    // Dev tools
+    globalShortcut.register('Ctrl+Shift+I', function () {
+      if (mainWindow?.webContents.isDevToolsOpened()) {
+        mainWindow?.webContents.closeDevTools();
+      } else {
+        mainWindow?.webContents.openDevTools();
+      }
+    });
+    // Refresh
+    globalShortcut.register('Ctrl+R', function () {
+      mainWindow?.reload();
+    });
+    globalShortcut.register('Ctrl+Shift+R', function () {
+      mainWindow?.reload();
+    });
+  });
+  mainWindow.on('blur', function () {
+    globalShortcut.unregisterAll();
+  });
+
+  // Minimize, maximize, close window.
+  ipcMain.on('window-tray', function () {
+    mainWindow?.hide();
+  });
+  ipcMain.on('window-min', function () {
+    mainWindow?.minimize();
+  });
+  ipcMain.on('window-max', function () {
+    mainWindow?.isMaximized() ? mainWindow?.restore() : mainWindow?.maximize();
+  });
+  ipcMain.on('window-close', function () {
+    alas.kill(function () {
+      mainWindow?.close();
+    })
+  });
+
+  // Tray
+  const tray = new Tray(path.join(__dirname, 'icon.png'));
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: '显示',
+      click: function () {
+        mainWindow?.show();
+      }
+    },
+    {
+      label: '隐藏',
+      click: function () {
+        mainWindow?.hide();
+      }
+    },
+    {
+      label: '退出',
+      click: function () {
+        alas.kill(function () {
+          mainWindow?.close();
+        })
+      }
+    }
+  ]);
+  tray.setToolTip('Alas');
+  tray.setContextMenu(contextMenu);
+  tray.on('click', () => {
+    mainWindow?.isVisible() ? mainWindow?.hide() : mainWindow?.show()
+  });
+  tray.on('right-click', () => {
+    tray.popUpContextMenu(contextMenu)
+  });
+};
+
+
+// No DPI scaling
+if (!dpiScaling) {
+  app.commandLine.appendSwitch('high-dpi-support', '1');
+  app.commandLine.appendSwitch('force-device-scale-factor', '1');
+}
+
+
+function loadURL() {
+  /**
+   * URL for main window.
+   * Vite dev server for development.
+   * `file://../renderer/index.html` for production and test
+   */
+  const pageUrl = import.meta.env.MODE === 'development' && import.meta.env.VITE_DEV_SERVER_URL !== undefined
+    ? import.meta.env.VITE_DEV_SERVER_URL
+    : new URL('../renderer/dist/index.html', 'file://' + __dirname).toString();
+
+  mainWindow?.loadURL(pageUrl);
+}
+
+
+alas.on('stderr', function (message: string) {
+  /**
+   * Receive logs, judge if Alas is ready
+   * For starlette backend, there will have:
+   * `INFO:     Uvicorn running on http://0.0.0.0:22267 (Press CTRL+C to quit)`
+   * Or backend has started already
+   * `[Errno 10048] error while attempting to bind on address ('0.0.0.0', 22267): `
+   */
+  if (message.includes('Application startup complete') || message.includes('bind on address')) {
+    alas.removeAllListeners('stderr');
+    loadURL()
+  }
+});
+
+
+app.on('second-instance', () => {
+  // Someone tried to run a second instance, we should focus our window.
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) mainWindow.restore();
+    if (!mainWindow.isVisible()) mainWindow.show();
+    mainWindow.focus();
+  }
+});
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 /**
  *Set App Error Log Path

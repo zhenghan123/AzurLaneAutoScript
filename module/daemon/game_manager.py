@@ -1,6 +1,10 @@
 from module.handler.login import LoginHandler
 from module.logger import logger
+<<<<<<< HEAD
 from module.gg_handler.gg_handler import GGHandler
+=======
+from module.gg_manager.gg_manager import GGManager
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 
 class GameManager(LoginHandler):
@@ -8,7 +12,11 @@ class GameManager(LoginHandler):
         logger.hr('Force Stop AzurLane', level=1)
         self.device.app_stop()
         logger.info('Force Stop finished')
+<<<<<<< HEAD
         GGHandler(config=self.config, device=self.device).check_config()
+=======
+        GGManager(config=self.config, device=self.device).check_config()
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
         if self.config.GameManager_AutoRestart:
             LoginHandler(config=self.config, device=self.device).app_restart()
 

@@ -32,6 +32,24 @@ Farm:
   menu: 'collapse'
   page: 'setting'
   tasks:
+    MainNormal:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
+    MainHard:
+      - Scheduler
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
     Main:
       - Scheduler
       - Campaign
@@ -42,15 +60,6 @@ Farm:
       - HpControl
       - EnemyPriority
     Main2:
-      - Scheduler
-      - Campaign
-      - StopCondition
-      - Fleet
-      - Submarine
-      - Emotion
-      - HpControl
-      - EnemyPriority
-    Main3:
       - Scheduler
       - Campaign
       - StopCondition
@@ -270,6 +279,9 @@ DailyMission:
       - SupplyPack
     Minigame:
       - Scheduler
+    DashboardUpdate:
+      - Scheduler
+      - DashboardUpdate
 
 # ==================== Opsi ====================
 
@@ -347,6 +359,7 @@ Tool:
       - AzurLaneUncensored
     GameManager:
       - GameManager
+<<<<<<< HEAD
       - GGHandler
       - PowerLimit
       - ChangeShip
@@ -354,3 +367,27 @@ Tool:
     SomethingSpecial:
       - InfiniteDelay
       - TurnOffForcedOnSettings
+=======
+    GGManager:
+      - GGManager
+      - PowerLimit
+
+# ==================== Dashboard ====================
+
+Dashboard:
+  page: 'dashboard'
+  tasks:
+    Resource:
+      - Oil
+      - Coin
+      - Gem
+      - Pt
+      - Cube
+      - ActionPoint
+      - YellowCoin
+      - PurpleCoin
+      - Core
+      - Medal
+      - Merit
+      - GuildCoin
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31

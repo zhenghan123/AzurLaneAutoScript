@@ -275,6 +275,8 @@ class Combat(Combat_, MapEventHandler):
             if self.is_in_map():
                 self.device.screenshot_interval_set()
                 break
+            if self.appear_then_click(CONTINUE_CONFIRM):
+                continue
             if self.is_combat_executing():
                 continue
             if self.handle_auto_search_battle_status():
