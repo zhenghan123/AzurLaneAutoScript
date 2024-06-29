@@ -56,12 +56,14 @@
     box-shadow: 0 0.06rem 0 #4e4c97;
 }
 
-#pywebio-scope-dashboard input {
-    background-color: white !important;
-}
 
 input[type="checkbox"] {
     accent-color: #7a77bb;
+}
+
+#pywebio-scope-dashboard input {
+    background-color: white !important;
+
 }
 
 select {
