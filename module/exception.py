@@ -60,4 +60,8 @@ class RequestHumanTakeover(Exception):
 
 
 class AutoSearchSetError(Exception):
+<<<<<<< HEAD
     pass
+=======
+    pass
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31

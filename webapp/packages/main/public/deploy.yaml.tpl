@@ -159,8 +159,15 @@ Deploy:
     # '["alas","alas2"]' specified "alas" "alas2" configs
     Run: null
     # To update app.asar
+<<<<<<< HEAD:webapp/packages/main/public/deploy.yaml.tpl
     # [In most cases] true
     AppAsarUpdate: true
     # --no-sandbox. https://github.com/electron/electron/issues/30966
     # Some Windows systems cannot call the GPU normally for virtualization, and you need to manually turn off sandbox mode
     NoSandbox: false
+=======
+    # 'true' default, use lme
+    # 'false' use me
+    # 'null' disable autoupdate
+    AppAsarUpdate: true
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31:deploy/template

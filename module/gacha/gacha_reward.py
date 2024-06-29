@@ -8,7 +8,11 @@ from module.logger import logger
 from module.ocr.ocr import Digit
 from module.retire.retirement import Retirement
 from module.shop.shop_general import GeneralShop
+<<<<<<< HEAD
 from module.log_res.log_res import LogRes
+=======
+from module.log_res import LogRes
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 RECORD_GACHA_OPTION = ('RewardRecord', 'gacha')
 RECORD_GACHA_SINCE = (0,)
@@ -292,7 +296,10 @@ class RewardGacha(GachaUI, GeneralShop, Retirement):
         self.ui_goto_gacha()
 
         # OCR Gold and Cubes
+<<<<<<< HEAD
         self.device.screenshot()
+=======
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
         self.shop_currency()
         self.build_cube_count = OCR_BUILD_CUBE_COUNT.ocr(self.device.image)
 

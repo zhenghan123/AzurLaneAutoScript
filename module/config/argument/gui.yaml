@@ -1,6 +1,10 @@
 # Translations web gui
 # This will insert to `config/i18n/{lang}.json`, under key `Gui`
 
+Login:
+  Login:
+  LoginError:
+
 Aside:
   Install:
   Home:
@@ -31,6 +35,8 @@ Toast:
   ConfigSaved:
   AlasIsRunning:
   ClickToUpdate:
+  AlasRestart:
+  ReloadEnabled:
 
 Status:
   Running:
@@ -48,10 +54,13 @@ MenuDevelop:
   Update:
   Remote:
   Utils:
+  RaiseException:
+  ForceRestart:
 
 Overview:
   Scheduler:
   Dashboard:
+<<<<<<< HEAD
   SecondsAgo:
   MinutesAgo:
   HoursAgo:
@@ -71,11 +80,34 @@ Overview:
   Medal:
   Core:
   GuildCoin:
+=======
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
   Log:
   Running:
   Pending:
   Waiting:
   NoTask:
+
+Dashboard:
+  TimeError:
+  JustNow:
+  MinutesAgo:
+  HoursAgo:
+  DaysAgo:
+  LongTimeAgo:
+  NoData:
+  Oil:
+  Coin:
+  Gem:
+  Cube:
+  Pt:
+  YellowCoin:
+  PurpleCoin:
+  ActionPoint:
+  Merit:
+  Medal:
+  Core:
+  GuildCoin:
 
 AddAlas:
   PopupTitle:

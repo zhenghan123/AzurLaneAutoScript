@@ -12,8 +12,12 @@ from module.os_handler.map_event import MapEventHandler
 from module.statistics.item import Item, ItemGrid
 from module.ui.assets import OS_CHECK
 from module.ui.ui import UI
+<<<<<<< HEAD
 from module.config.utils import deep_get
 from module.log_res.log_res import LogRes
+=======
+from module.log_res import LogRes
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 OCR_ACTION_POINT_REMAIN = Digit(ACTION_POINT_REMAIN, letter=(255, 219, 66), name='OCR_ACTION_POINT_REMAIN')
 OCR_ACTION_POINT_REMAIN_OS = Digit(ACTION_POINT_REMAIN_OS, letter=(239, 239, 239),

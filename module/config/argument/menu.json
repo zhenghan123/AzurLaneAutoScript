@@ -12,9 +12,10 @@
     "menu": "collapse",
     "page": "setting",
     "tasks": [
+      "MainNormal",
+      "MainHard",
       "Main",
       "Main2",
-      "Main3",
       "GemsFarming"
     ]
   },
@@ -70,7 +71,8 @@
       "Shipyard",
       "Gacha",
       "Freebies",
-      "Minigame"
+      "Minigame",
+      "DashboardUpdate"
     ]
   },
   "Opsi": {
@@ -103,7 +105,11 @@
       "Benchmark",
       "AzurLaneUncensored",
       "GameManager",
+<<<<<<< HEAD
       "SomethingSpecial"
+=======
+      "GGManager"
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     ]
   }
 }

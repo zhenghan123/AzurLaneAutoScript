@@ -20,6 +20,7 @@ from module.exception import (
     RequestHumanTakeover
 )
 from module.handler.assets import GET_MISSION
+from module.notify import handle_notify
 from module.logger import logger
 
 
@@ -231,8 +232,18 @@ class Device(Screenshot, Control, AppControl):
         self.stuck_record_clear()
 
         if self.app_is_running():
+            handle_notify(
+                self.config.Error_OnePushConfig,
+                title=f"Alas <{self.config.config_name}> Wait too long",
+                content=f"<{self.config.config_name}> Wait too long",
+            )
             raise GameStuckError(f'Wait too long')
         else:
+            handle_notify(
+                self.config.Error_OnePushConfig,
+                title=f"Game <{self.config.config_name}> died(崩溃了)",
+                content=f"<{self.config.config_name}> Game died",
+            )
             raise GameNotRunningError('Game died')
 
     def handle_control_check(self, button):
@@ -288,12 +299,22 @@ class Device(Screenshot, Control, AppControl):
             logger.warning(f'Too many click for a button: {count[0][0]}')
             logger.warning(f'History click: {[str(prev) for prev in self.click_record]}')
             self.click_record_clear()
+            handle_notify(
+                self.config.Error_OnePushConfig,
+                title=f"Alas <{self.config.config_name}> crashed(崩溃了)",
+                content=f"<{self.config.config_name}> Too many click for a button: {count[0][0]}",
+            )
             raise GameTooManyClickError(f'Too many click for a button: {count[0][0]}')
         if len(count) >= 2 and count[0][1] >= self.config.Optimization_MultiButtonMaxCount1 and count[1][1] >= self.config.Optimization_MultiButtonMaxCount2:
             show_function_call()
             logger.warning(f'Too many click between 2 buttons: {count[0][0]}, {count[1][0]}')
             logger.warning(f'History click: {[str(prev) for prev in self.click_record]}')
             self.click_record_clear()
+            handle_notify(
+                self.config.Error_OnePushConfig,
+                title=f"Alas <{self.config.config_name}> crashed(崩溃了)",
+                content=f"<{self.config.config_name}> Too many click between 2 buttons: {count[0][0]}, {count[1][0]}",
+            )
             raise GameTooManyClickError(f'Too many click between 2 buttons: {count[0][0]}, {count[1][0]}')
 
     def disable_stuck_detection(self):
@@ -310,7 +331,7 @@ class Device(Screenshot, Control, AppControl):
 
     def app_start(self):
         if not self.config.Error_HandleError:
-            logger.critical('No app stop/start, because HandleError disabled')
+            logger.critical('No game stop/start, because HandleError disabled')
             logger.critical('Please enable Alas.Error.HandleError or manually login to AzurLane')
             raise RequestHumanTakeover
         super().app_start()
@@ -319,7 +340,7 @@ class Device(Screenshot, Control, AppControl):
 
     def app_stop(self):
         if not self.config.Error_HandleError:
-            logger.critical('No app stop/start, because HandleError disabled')
+            logger.critical('No game stop/start, because HandleError disabled')
             logger.critical('Please enable Alas.Error.HandleError or manually login to AzurLane')
             raise RequestHumanTakeover
         super().app_stop()

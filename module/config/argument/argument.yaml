@@ -9,7 +9,7 @@ Scheduler:
     type: checkbox
     value: false
     option: [ true, false ]
-  NextRun: 2020-01-01 00:00:00
+  NextRun: 2023-01-01 00:00:00
   Command: Alas
   SuccessInterval:
     value: 0
@@ -166,7 +166,7 @@ StopCondition:
   RunCount: 0
   MapAchievement:
     value: non_stop
-    option: [ non_stop, 100_percent_clear, map_3_stars, threat_safe, threat_safe_without_3_stars ]
+    option: [ non_stop, 100_percent_clear, threat_safe_without_3_stars, map_3_stars, threat_safe ]
   StageIncrease: false
   GetNewShip: false
   ReachLevel: 0
@@ -217,7 +217,7 @@ Emotion:
     option: [ calculate, ignore, calculate_ignore ]
   Fleet1Value: 119
   Fleet1Record:
-    value: 2020-01-01 00:00:00
+    value: 2023-01-01 00:00:00
     display: disabled
   Fleet1Control:
     value: prevent_yellow_face
@@ -228,7 +228,7 @@ Emotion:
   Fleet1Oath: false
   Fleet2Value: 119
   Fleet2Record:
-    value: 2020-01-01 00:00:00
+    value: 2023-01-01 00:00:00
     display: disabled
   Fleet2Control:
     value: prevent_yellow_face
@@ -323,13 +323,13 @@ VanguardFilter:
 
 EventGeneral:
   PtLimit: 0
-  TimeLimit: 2020-01-01 00:00:00
+  TimeLimit: 2023-01-01 00:00:00
 TaskBalancer:
   Enable: false
   CoinLimit: 10000
   TaskCall:
     value: Main
-    option: [ Main, Main2, Main3 ]
+    option: [ MainNormal, MainHard, Main, Main2 ]
 EventDaily:
   StageFilter: |-
     A1 > A2 > A3
@@ -570,7 +570,7 @@ ShipyardDr:
     value: 0
     option: [ 0, 1, 2, 3, 4, 5, 6 ]
   BuyAmount: 2
-  LastRun: 2020-01-01 00:00:00
+  LastRun: 2023-01-01 00:00:00
 Shipyard:
   ResearchSeries:
     value: 1
@@ -579,7 +579,7 @@ Shipyard:
     value: 0
     option: [ 0, 1, 2, 3, 4, 5, 6 ]
   BuyAmount: 2
-  LastRun: 2020-01-01 00:00:00
+  LastRun: 2023-01-01 00:00:00
 Gacha:
   Pool:
     value: light
@@ -606,6 +606,9 @@ SupplyPack:
     option: [ 0, 1, 2, 3, 4, 5, 6 ]
 Minigame:
   Collect: false
+DashboardUpdate:
+  Update: true
+
 # ==================== Daily ====================
 
 Daily:
@@ -668,7 +671,7 @@ Exercise:
   LowHpThreshold: 0.4
   LowHpConfirmWait: 0.1
   OpponentRefreshValue: 0
-  OpponentRefreshRecord: 2020-01-01 00:00:00
+  OpponentRefreshRecord: 2023-01-01 00:00:00
 Sos:
   Chapter:
     value: 3
@@ -767,10 +770,15 @@ Benchmark:
     option: [ screenshot_click, screenshot, click ]
 AzurLaneUncensored:
   Repository:
-    value: https://gitee.com/LmeSzinc/AzurLaneUncensored
-    display: disabled
+    type: textarea
+    mode: yaml
+    value: 'https://gitee.com/LmeSzinc/AzurLaneUncensored'
+  Option:
+    value: all
+    option: [ all, main, only_patch]
 GameManager:
   AutoRestart: true
+<<<<<<< HEAD
 
 GGHandler:
   Enabled: false
@@ -794,10 +802,40 @@ GGHandler:
       disable_exercise,
       enable_all,
     ]
+=======
+GGManager:
+  Enable: false
+  RestartEverytime:
+    value: true
+    display: hide
+  GGMultiplyingFactor: 200
+  GGAction: 
+    value: auto
+    option: [ auto, manual ]
+  GGLuapath:
+    type: textarea
+    mode: yaml
+    value: null
+  GGLuapathRecord: false
+  GGPackageName:
+    type: textarea
+    mode: yaml
+    value: 'com.'
+  GGLowLimit: 500
+  DisabledTask:
+    value: disable_all_dangerous_task
+    option:
+      - disable_guild_and_dangerous
+      - disable_all_dangerous_task
+      - disable_meta_and_exercise
+      - disable_exercise
+      - enable_all
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 PowerLimit:
   Exercise: 16500
   Raid: 16500
   Ash: 16500
+<<<<<<< HEAD
 ChangeShip:
   Enable: false
   PushLua: false
@@ -834,17 +872,28 @@ TurnOffForcedOnSettings:
 
 
 # ==================== Dashboard ====================
+=======
+  Coalition: 16500
+
+# ==================== Dashboard ====================
+
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 Oil:
   Value: 0
   Limit: 0
   Color:
     value: ^000000
+<<<<<<< HEAD
     display: hide
   Record: 2020-01-01 00:00:00
+=======
+  Record: 2023-01-01 00:00:00
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 Coin:
   Value: 0
   Limit: 0
   Color:
+<<<<<<< HEAD
     value: ^000000
     display: hide
   Record: 2020-01-01 00:00:00
@@ -872,10 +921,35 @@ PurpleCoin:
     value: ^000000
     display: hide
   Record: 2020-01-01 00:00:00
+=======
+    value: ^FFAA33
+  Record: 2023-01-01 00:00:00
+Gem:
+  Value: 0
+  Color:
+    value: ^FF3333
+  Record: 2023-01-01 00:00:00
+Pt:
+  Value: 0
+  Color:
+    value: ^00BFFF
+  Record: 2023-01-01 00:00:00
+YellowCoin:
+  Value: 0
+  Color:
+    value: ^FF8800
+  Record: 2023-01-01 00:00:00
+PurpleCoin:
+  Value: 0
+  Color:
+    value: ^7700BB
+  Record: 2023-01-01 00:00:00
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 ActionPoint:
   Value: 0
   Total: 0
   Color:
+<<<<<<< HEAD
     value: ^000000
     display: hide
   Record: 2020-01-01 00:00:00
@@ -936,3 +1010,33 @@ InstanceRestart:
   HasRestarted:
     value: 0
     display: hide
+=======
+    value: ^0000FF
+  Record: 2023-01-01 00:00:00
+Merit:
+  Value: 0
+  Color:
+    value: ^FFFF00
+  Record: 2023-01-01 00:00:00
+Cube:
+  Value: 0
+  Color:
+    value: ^33FFFF
+  Record: 2023-01-01 00:00:00
+Core:
+  Value: 0
+  Color:
+    value: ^AAAAAA
+  Record: 2023-01-01 00:00:00
+Medal:
+  Value: 0
+  Color:
+    value: ^FFDD00
+    display: hide
+  Record: 2023-01-01 00:00:00
+GuildCoin:
+  Value: 0
+  Color:
+    value: ^AAAAAA
+  Record: 2023-01-01 00:00:00
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31

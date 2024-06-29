@@ -1,3 +1,4 @@
+
 from module.campaign.campaign_base import CampaignBase
 from module.campaign.assets import REMOVE_SHIP
 from module.campaign.run import CampaignRun

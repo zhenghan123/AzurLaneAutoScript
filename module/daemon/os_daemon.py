@@ -1,4 +1,4 @@
-from module.combat.assets import EXP_INFO_C, EXP_INFO_D
+from module.combat.assets import CONTINUE_CONFIRM, EXP_INFO_C, EXP_INFO_D
 from module.daemon.daemon_base import DaemonBase
 from module.exception import CampaignEnd
 from module.logger import logger
@@ -34,6 +34,8 @@ class AzurLaneDaemon(DaemonBase, OSFleet, PortHandler):
                     self.combat_status(expected_end='no_searching')
                     continue
             except (CampaignEnd, ContinuousCombat):
+                continue
+            if self.appear_then_click(CONTINUE_CONFIRM):
                 continue
             if self.appear_then_click(EXP_INFO_C, interval=2):
                 continue

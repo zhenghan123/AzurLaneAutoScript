@@ -250,10 +250,17 @@ class FastForwardHandler(AutoSearchHandler):
                 from module.notify import handle_notify
                 if not handle_notify(
                     self.config.Error_OnePushConfig,
+<<<<<<< HEAD
                     title=f"Alas <{self.config.config_name}> crashed",
                     content=f"<{self.config.config_name}> RequestHumanTakeover\n"
                             f"Task GemsFarming could not set auto search settings",
                                      ):
+=======
+                    title=f"Alas <{self.config.config_name}> crashed(崩溃了)",
+                    content=f"<{self.config.config_name}> RequestHumanTakeover(需要手动介入)\n"
+                            f"Task GemsFarming could not set auto search settings(任务无法设置自动搜索设置)",
+                            ):
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
                     from module.exception import AutoSearchSetError
                     raise AutoSearchSetError
                 self.config.modified['GemsFarming.Scheduler.Enable'] = False

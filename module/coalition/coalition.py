@@ -6,7 +6,9 @@ from module.coalition.combat import CoalitionCombat
 from module.exception import ScriptError, ScriptEnd
 from module.logger import logger
 from module.ocr.ocr import Digit
-from  module.log_res.log_res import LogRes
+
+from  module.log_res import LogRes
+
 
 OCR_PT = Digit(FROSTFALL_OCR_PT, name='OCR_PT', letter=(198, 158, 82), threshold=128)
 
@@ -20,7 +22,18 @@ class Coalition(CoalitionCombat, CampaignEvent):
         Returns:
             int: PT amount, or 0 if unable to parse
         """
-        pt = OCR_PT.ocr(self.device.image)
+
+        event = self.config.Campaign_Event
+        if event == 'coalition_20230323':
+            ocr = Digit(FROSTFALL_OCR_PT, name='OCR_PT', letter=(198, 158, 82), threshold=128)
+        elif event == 'coalition_20240627':
+            ocr = AcademyPtOcr(ACADEMY_PT_OCR, name='OCR_PT', letter=(255, 255, 255), threshold=128)
+        else:
+            logger.error(f'ocr object is not defined in event {event}')
+            raise ScriptError
+
+        pt = ocr.ocr(self.device.image)
+
         LogRes(self.config).Pt = pt
         self.config.update()
         return pt

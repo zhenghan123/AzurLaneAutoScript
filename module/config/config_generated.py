@@ -11,7 +11,7 @@ class GeneratedConfig:
 
     # Group `Scheduler`
     Scheduler_Enable = False  # True, False
-    Scheduler_NextRun = datetime.datetime(2020, 1, 1, 0, 0)
+    Scheduler_NextRun = datetime.datetime(2023, 1, 1, 0, 0)
     Scheduler_Command = 'Alas'
     Scheduler_SuccessInterval = 0
     Scheduler_FailureInterval = 120
@@ -89,7 +89,7 @@ class GeneratedConfig:
     # Group `StopCondition`
     StopCondition_OilLimit = 1000
     StopCondition_RunCount = 0
-    StopCondition_MapAchievement = 'non_stop'  # non_stop, 100_percent_clear, map_3_stars, threat_safe, threat_safe_without_3_stars
+    StopCondition_MapAchievement = 'non_stop'  # non_stop, 100_percent_clear, threat_safe_without_3_stars, map_3_stars, threat_safe
     StopCondition_StageIncrease = False
     StopCondition_GetNewShip = False
     StopCondition_ReachLevel = 0
@@ -114,12 +114,12 @@ class GeneratedConfig:
     # Group `Emotion`
     Emotion_Mode = 'calculate'  # calculate, ignore, calculate_ignore
     Emotion_Fleet1Value = 119
-    Emotion_Fleet1Record = datetime.datetime(2020, 1, 1, 0, 0)
+    Emotion_Fleet1Record = datetime.datetime(2023, 1, 1, 0, 0)
     Emotion_Fleet1Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
     Emotion_Fleet1Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
     Emotion_Fleet1Oath = False
     Emotion_Fleet2Value = 119
-    Emotion_Fleet2Record = datetime.datetime(2020, 1, 1, 0, 0)
+    Emotion_Fleet2Record = datetime.datetime(2023, 1, 1, 0, 0)
     Emotion_Fleet2Control = 'prevent_yellow_face'  # keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face
     Emotion_Fleet2Recover = 'not_in_dormitory'  # not_in_dormitory, dormitory_floor_1, dormitory_floor_2
     Emotion_Fleet2Oath = False
@@ -177,12 +177,12 @@ class GeneratedConfig:
 
     # Group `EventGeneral`
     EventGeneral_PtLimit = 0
-    EventGeneral_TimeLimit = datetime.datetime(2020, 1, 1, 0, 0)
+    EventGeneral_TimeLimit = datetime.datetime(2023, 1, 1, 0, 0)
 
     # Group `TaskBalancer`
     TaskBalancer_Enable = False
     TaskBalancer_CoinLimit = 10000
-    TaskBalancer_TaskCall = 'Main'  # Main, Main2, Main3
+    TaskBalancer_TaskCall = 'Main'  # MainNormal, MainHard, Main, Main2
 
     # Group `EventDaily`
     EventDaily_StageFilter = 'A1 > A2 > A3'
@@ -313,13 +313,13 @@ class GeneratedConfig:
     ShipyardDr_ResearchSeries = 2  # 2, 3
     ShipyardDr_ShipIndex = 0  # 0, 1, 2, 3, 4, 5, 6
     ShipyardDr_BuyAmount = 2
-    ShipyardDr_LastRun = datetime.datetime(2020, 1, 1, 0, 0)
+    ShipyardDr_LastRun = datetime.datetime(2023, 1, 1, 0, 0)
 
     # Group `Shipyard`
     Shipyard_ResearchSeries = 1  # 1, 2, 3, 4
     Shipyard_ShipIndex = 0  # 0, 1, 2, 3, 4, 5, 6
     Shipyard_BuyAmount = 2
-    Shipyard_LastRun = datetime.datetime(2020, 1, 1, 0, 0)
+    Shipyard_LastRun = datetime.datetime(2023, 1, 1, 0, 0)
 
     # Group `Gacha`
     Gacha_Pool = 'light'  # light, heavy, special, event, wishing_well
@@ -345,6 +345,9 @@ class GeneratedConfig:
 
     # Group `Minigame`
     Minigame_Collect = False
+
+    # Group `DashboardUpdate`
+    DashboardUpdate_Update = True
 
     # Group `Daily`
     Daily_UseDailySkip = True
@@ -374,7 +377,7 @@ class GeneratedConfig:
     Exercise_LowHpThreshold = 0.4
     Exercise_LowHpConfirmWait = 0.1
     Exercise_OpponentRefreshValue = 0
-    Exercise_OpponentRefreshRecord = datetime.datetime(2020, 1, 1, 0, 0)
+    Exercise_OpponentRefreshRecord = datetime.datetime(2023, 1, 1, 0, 0)
 
     # Group `Sos`
     Sos_Chapter = 3  # 3, 4, 5, 6, 7, 8, 9, 10
@@ -458,10 +461,12 @@ class GeneratedConfig:
 
     # Group `AzurLaneUncensored`
     AzurLaneUncensored_Repository = 'https://gitee.com/LmeSzinc/AzurLaneUncensored'
+    AzurLaneUncensored_Option = 'all'  # all, main, only_patch
 
     # Group `GameManager`
     GameManager_AutoRestart = True
 
+<<<<<<< HEAD
     # Group `GGHandler`
     GGHandler_Enabled = False
     GGHandler_GGMethod = 'u2'  # u2
@@ -473,11 +478,24 @@ class GeneratedConfig:
     GGHandler_GGMultiplyingFactor = 200
     GGHandler_Timeout = 1200
     GGHandler_DisabledTask = 'disable_all_dangerous_task'  # disable_all_dangerous_task, disable_guild_and_dangerous, disable_exercise, enable_all
+=======
+    # Group `GGManager`
+    GGManager_Enable = False
+    GGManager_RestartEverytime = True
+    GGManager_GGMultiplyingFactor = 200
+    GGManager_GGAction = 'auto'  # auto, manual
+    GGManager_GGLuapath = None
+    GGManager_GGLuapathRecord = False
+    GGManager_GGPackageName = 'com.'
+    GGManager_GGLowLimit = 500
+    GGManager_DisabledTask = 'disable_all_dangerous_task'  # disable_guild_and_dangerous, disable_all_dangerous_task, disable_meta_and_exercise, disable_exercise, enable_all
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
     # Group `PowerLimit`
     PowerLimit_Exercise = 16500
     PowerLimit_Raid = 16500
     PowerLimit_Ash = 16500
+<<<<<<< HEAD
 
     # Group `ChangeShip`
     ChangeShip_Enable = False
@@ -499,16 +517,24 @@ class GeneratedConfig:
     # Group `TurnOffForcedOnSettings`
     TurnOffForcedOnSettings_OpsiMeowfficerFarmingFromOpsiHazard1Leveling = False
     TurnOffForcedOnSettings_OpsiHazard1LevelingYellowCoinLimit = False
+=======
+    PowerLimit_Coalition = 16500
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
     # Group `Oil`
     Oil_Value = 0
     Oil_Limit = 0
     Oil_Color = '^000000'
+<<<<<<< HEAD
     Oil_Record = datetime.datetime(2020, 1, 1, 0, 0)
+=======
+    Oil_Record = datetime.datetime(2023, 1, 1, 0, 0)
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
     # Group `Coin`
     Coin_Value = 0
     Coin_Limit = 0
+<<<<<<< HEAD
     Coin_Color = '^000000'
     Coin_Record = datetime.datetime(2020, 1, 1, 0, 0)
 
@@ -531,10 +557,35 @@ class GeneratedConfig:
     PurpleCoin_Value = 0
     PurpleCoin_Color = '^000000'
     PurpleCoin_Record = datetime.datetime(2020, 1, 1, 0, 0)
+=======
+    Coin_Color = '^FFAA33'
+    Coin_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `Gem`
+    Gem_Value = 0
+    Gem_Color = '^FF3333'
+    Gem_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `Pt`
+    Pt_Value = 0
+    Pt_Color = '^00BFFF'
+    Pt_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `YellowCoin`
+    YellowCoin_Value = 0
+    YellowCoin_Color = '^FF8800'
+    YellowCoin_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `PurpleCoin`
+    PurpleCoin_Value = 0
+    PurpleCoin_Color = '^7700BB'
+    PurpleCoin_Record = datetime.datetime(2023, 1, 1, 0, 0)
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
     # Group `ActionPoint`
     ActionPoint_Value = 0
     ActionPoint_Total = 0
+<<<<<<< HEAD
     ActionPoint_Color = '^000000'
     ActionPoint_Record = datetime.datetime(2020, 1, 1, 0, 0)
 
@@ -573,6 +624,35 @@ class GeneratedConfig:
     InstanceRestart_AttemptsToRestart = 114514
     InstanceRestart_NotifyWhenAutoRestart = False
     InstanceRestart_HasRestarted = 0
+=======
+    ActionPoint_Color = '^0000FF'
+    ActionPoint_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `Merit`
+    Merit_Value = 0
+    Merit_Color = '^FFFF00'
+    Merit_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `Cube`
+    Cube_Value = 0
+    Cube_Color = '^33FFFF'
+    Cube_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `Core`
+    Core_Value = 0
+    Core_Color = '^AAAAAA'
+    Core_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `Medal`
+    Medal_Value = 0
+    Medal_Color = '^FFDD00'
+    Medal_Record = datetime.datetime(2023, 1, 1, 0, 0)
+
+    # Group `GuildCoin`
+    GuildCoin_Value = 0
+    GuildCoin_Color = '^AAAAAA'
+    GuildCoin_Record = datetime.datetime(2023, 1, 1, 0, 0)
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
     # Group `Storage`
     Storage_Storage = {}

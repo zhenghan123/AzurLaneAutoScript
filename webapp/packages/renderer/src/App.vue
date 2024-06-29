@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+<<<<<<< HEAD
 import {computed, defineComponent, unref} from 'vue';
 import AppHeader from '/@/components/AppHeader.vue';
 import {useLocale} from '/@/locales/useLocale';
@@ -34,6 +35,10 @@ import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
 import jaJP from '@arco-design/web-vue/es/locale/lang/ja-jp';
 import zhTW from '@arco-design/web-vue/es/locale/lang/zh-tw';
 import type {ArcoLang} from '@arco-design/web-vue/es/locale/interface';
+=======
+  import {defineComponent} from 'vue';
+  import AppHeader from '/@/components/AppHeader.vue';
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 export default defineComponent({
   name: 'App',

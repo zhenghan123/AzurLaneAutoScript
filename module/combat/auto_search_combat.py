@@ -127,7 +127,7 @@ class AutoSearchCombat(MapOperation, Combat, CampaignStatus):
         """
         if not checked:
             limit = self.config.TaskBalancer_CoinLimit
-            coin = self.get_coin()
+            coin = self._get_coin()
             if coin == 0:
                 logger.warning('Coin not found')
             else:
@@ -282,6 +282,8 @@ class AutoSearchCombat(MapOperation, Combat, CampaignStatus):
             if self.is_in_auto_search_menu() or self._handle_auto_search_menu_missing():
                 self.device.screenshot_interval_set()
                 raise CampaignEnd
+            if self.appear_then_click(CONTINUE_CONFIRM):
+                continue
             if self.is_combat_executing():
                 continue
             if self.handle_get_ship():

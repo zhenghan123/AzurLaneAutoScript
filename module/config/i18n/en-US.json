@@ -46,16 +46,20 @@
       "name": "Restart",
       "help": ""
     },
+    "MainNormal": {
+      "name": "MainNormal",
+      "help": ""
+    },
+    "MainHard": {
+      "name": "MainHard",
+      "help": ""
+    },
     "Main": {
       "name": "Main",
       "help": ""
     },
     "Main2": {
       "name": "Main-2",
-      "help": ""
-    },
-    "Main3": {
-      "name": "Main-3",
       "help": ""
     },
     "GemsFarming": {
@@ -75,7 +79,11 @@
       "help": ""
     },
     "Event3": {
+<<<<<<< HEAD
       "name": "Task.Event3.name",
+=======
+      "name": "Event-3",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "help": "Task.Event3.help"
     },
     "Raid": {
@@ -186,6 +194,10 @@
       "name": "Minigame",
       "help": "Receive credits and spend them"
     },
+    "DashboardUpdate": {
+      "name": "Dashboard Update",
+      "help": ""
+    },
     "OpsiGeneral": {
       "name": "OpSi General",
       "help": ""
@@ -266,9 +278,15 @@
       "name": "Game Manager(WIP)",
       "help": ""
     },
+<<<<<<< HEAD
     "SomethingSpecial": {
       "name": "Task.SomethingSpecial.name",
       "help": "Task.SomethingSpecial.help"
+=======
+    "GGManager": {
+      "name": "Task.GGManager.name",
+      "help": "Task.GGManager.help"
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     }
   },
   "Scheduler": {
@@ -834,9 +852,9 @@
       "help": "Stop current task if level has been 100% Clear, 3 Stars, Threat Safe, or Threat Safe without 3 Stars. Non-stop implies no achievement requirement and loops until different stop condition is met",
       "non_stop": "Non-stop",
       "100_percent_clear": "100% Clear",
+      "threat_safe_without_3_stars": "100% Clear + Threat Safe",
       "map_3_stars": "100% Clear + 3 Stars",
-      "threat_safe": "100% Clear + 3 Stars + Threat Safe",
-      "threat_safe_without_3_stars": "100% Clear + Threat Safe"
+      "threat_safe": "100% Clear + 3 Stars + Threat Safe"
     },
     "StageIncrease": {
       "name": "Enable Continuous Clear",
@@ -874,7 +892,7 @@
       "diamond": "diamond"
     },
     "Fleet1Mode": {
-      "name": "Fleet 1 Mode",
+      "name": "Fleet1 Action Mode",
       "help": "",
       "combat_auto": "combat_auto",
       "combat_manual": "combat_manual",
@@ -908,7 +926,7 @@
       "diamond": "diamond"
     },
     "Fleet2Mode": {
-      "name": "Fleet 2 Mode",
+      "name": "Fleet2 Action Mode",
       "help": "",
       "combat_auto": "combat_auto",
       "combat_manual": "combat_manual",
@@ -1369,7 +1387,7 @@
     },
     "TimeLimit": {
       "name": "Event Time Limit",
-      "help": "When the local time exceeds the given value, disable all event tasks. '2020-01-01 00:00:00' means no limit and the time will be reset once it's triggered\nThis can prevent the occurrence of forgetting to disable event tasks after the event ends"
+      "help": "When the local time exceeds the given value, disable all event tasks. '2023-01-01 00:00:00' means no limit and the time will be reset once it's triggered\nThis can prevent the occurrence of forgetting to disable event tasks after the event ends"
     }
   },
   "TaskBalancer": {
@@ -1388,9 +1406,10 @@
     "TaskCall": {
       "name": "Call task X if out of coin",
       "help": "Reminder: Players need to check task config before running, or TaskCall may not work.",
+      "MainNormal": "MainNormal",
+      "MainHard": "MainHard",
       "Main": "Main",
-      "Main2": "Main-2",
-      "Main3": "Main-3"
+      "Main2": "Main-2"
     }
   },
   "EventDaily": {
@@ -2151,6 +2170,16 @@
       "help": ""
     }
   },
+  "DashboardUpdate": {
+    "_info": {
+      "name": "DashboardUpdate._info.name",
+      "help": "DashboardUpdate._info.help"
+    },
+    "Update": {
+      "name": "DashboardUpdate.Update.name",
+      "help": "DashboardUpdate.Update.help"
+    }
+  },
   "Daily": {
     "_info": {
       "name": "Daily Settings",
@@ -2285,8 +2314,8 @@
       "help": "11-4, 12-2, 12-4, and etc."
     },
     "HardFleet": {
-      "name": "Hard Fleet",
-      "help": "Must in game manually set up the fleet and ensure level attribute restrictions are satisfied",
+      "name": "Hard.HardFleet.name",
+      "help": "Hard.HardFleet.help",
       "1": "1",
       "2": "2"
     }
@@ -2463,7 +2492,11 @@
       "4": "4"
     },
     "FleetMode": {
+<<<<<<< HEAD
       "name": "Fleet Mode",
+=======
+      "name": "Action Mode",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "help": "",
       "combat_auto": "combat_auto",
       "combat_manual": "combat_manual",
@@ -2676,7 +2709,14 @@
     },
     "Repository": {
       "name": "AzurLaneUncensored Repository",
-      "help": "Do not need to modify\nGithub: <https://github.com/LmeSzinc/AzurLaneUncensored>\nCN mirror: <https://e.coding.net/llop18870/alas/AzurLaneUncensored.git>"
+      "help": "Do not need to modify\nGithub: <https://github.com/LmeSzinc/AzurLaneUncensored>"
+    },
+    "Option": {
+      "name": "AzurLaneUncensored.Option.name",
+      "help": "AzurLaneUncensored.Option.help",
+      "all": "all",
+      "main": "main",
+      "only_patch": "only_patch"
     }
   },
   "GameManager": {
@@ -2689,6 +2729,7 @@
       "help": "Log back into the game when the game has been ended."
     }
   },
+<<<<<<< HEAD
   "GGHandler": {
     "_info": {
       "name": "GG Handler",
@@ -2738,6 +2779,55 @@
       "disable_guild_and_dangerous": "disable_guild_and_dangerous",
       "disable_exercise": "Disable_exercise",
       "enable_all": "Enable_all"
+=======
+  "GGManager": {
+    "_info": {
+      "name": "GGManager._info.name",
+      "help": "GGManager._info.help"
+    },
+    "Enable": {
+      "name": "GGManager.Enable.name",
+      "help": "GGManager.Enable.help"
+    },
+    "RestartEverytime": {
+      "name": "GGManager.RestartEverytime.name",
+      "help": "GGManager.RestartEverytime.help"
+    },
+    "GGMultiplyingFactor": {
+      "name": "GGManager.GGMultiplyingFactor.name",
+      "help": "GGManager.GGMultiplyingFactor.help"
+    },
+    "GGAction": {
+      "name": "GGManager.GGAction.name",
+      "help": "GGManager.GGAction.help",
+      "auto": "auto",
+      "manual": "manual"
+    },
+    "GGLuapath": {
+      "name": "GGManager.GGLuapath.name",
+      "help": "GGManager.GGLuapath.help"
+    },
+    "GGLuapathRecord": {
+      "name": "GGManager.GGLuapathRecord.name",
+      "help": "GGManager.GGLuapathRecord.help"
+    },
+    "GGPackageName": {
+      "name": "GGManager.GGPackageName.name",
+      "help": "GGManager.GGPackageName.help"
+    },
+    "GGLowLimit": {
+      "name": "GGManager.GGLowLimit.name",
+      "help": "GGManager.GGLowLimit.help"
+    },
+    "DisabledTask": {
+      "name": "GGManager.DisabledTask.name",
+      "help": "GGManager.DisabledTask.help",
+      "disable_guild_and_dangerous": "disable_guild_and_dangerous",
+      "disable_all_dangerous_task": "disable_all_dangerous_task",
+      "disable_meta_and_exercise": "disable_meta_and_exercise",
+      "disable_exercise": "disable_exercise",
+      "enable_all": "enable_all"
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     }
   },
   "PowerLimit": {
@@ -2756,6 +2846,7 @@
     "Ash": {
       "name": "Ash",
       "help": ""
+<<<<<<< HEAD
     }
   },
   "ChangeShip": {
@@ -3100,6 +3191,12 @@
     "HasRestarted": {
       "name": "InstanceRestart.HasRestarted.name",
       "help": "InstanceRestart.HasRestarted.help"
+=======
+    },
+    "Coalition": {
+      "name": "Coalition",
+      "help": ""
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     }
   },
   "Storage": {
@@ -3113,6 +3210,10 @@
     }
   },
   "Gui": {
+    "Login": {
+      "Login": "Please login below.",
+      "LoginError": "Wrong password!"
+    },
     "Aside": {
       "Install": "Install",
       "Home": "Home",
@@ -3142,7 +3243,9 @@
       "DisableTranslateMode": "Click here to disable translate mode",
       "ConfigSaved": "Config saved",
       "AlasIsRunning": "Scheduler is already running",
-      "ClickToUpdate": "New update available, click here to update"
+      "ClickToUpdate": "New update available, click here to update",
+      "AlasRestart": "Alas will restart in 3 seconds",
+      "ReloadEnabled": "Reload not enabled"
     },
     "Status": {
       "Running": "Running",
@@ -3159,10 +3262,13 @@
       "Translate": "Translate",
       "Update": "Updater",
       "Remote": "Remote access",
-      "Utils": "Utils"
+      "Utils": "Utils",
+      "RaiseException": "Raise Exception",
+      "ForceRestart": "Force Restart"
     },
     "Overview": {
       "Scheduler": "Scheduler",
+<<<<<<< HEAD
       "Dashboard": "Gui.Overview.Dashboard",
       "SecondsAgo": "Seconds ago",
       "MinutesAgo": "Minutes ago",
@@ -3183,11 +3289,35 @@
       "Medal": "Medal",
       "Core": "Core Data",
       "GuildCoin": "Guild Coin",
+=======
+      "Dashboard": "Dashboard",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "Log": "Log",
       "Running": "Running",
       "Pending": "Pending",
       "Waiting": "Waiting",
       "NoTask": "No Task"
+    },
+    "Dashboard": {
+      "TimeError": "TimeError",
+      "JustNow": "JustNow",
+      "MinutesAgo": "Minutes ago",
+      "HoursAgo": "Hours ago",
+      "DaysAgo": "Days ago",
+      "LongTimeAgo": "Long time ago",
+      "NoData": "No data",
+      "Oil": "Oil",
+      "Coin": "Coin",
+      "Gem": "Gem",
+      "Cube": "Cube",
+      "Pt": "Event Pt",
+      "YellowCoin": "Operation Supply Coin",
+      "PurpleCoin": "Special Item Token",
+      "ActionPoint": "Action Point",
+      "Merit": "Merit",
+      "Medal": "Medal",
+      "Core": "Core Data",
+      "GuildCoin": "Guild Coin"
     },
     "AddAlas": {
       "PopupTitle": "Add new config",

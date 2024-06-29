@@ -2,7 +2,11 @@ import json
 import os
 import random
 import string
+<<<<<<< HEAD
 import calendar
+=======
+import time
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 from datetime import datetime, timedelta, timezone
 
 import yaml
@@ -26,7 +30,7 @@ SERVER_TO_TIMEZONE = {
     'jp': timedelta(hours=9),
     'tw': timedelta(hours=8),
 }
-DEFAULT_TIME = datetime(2020, 1, 1, 0, 0)
+DEFAULT_TIME = datetime(2023, 1, 1, 0, 0)
 
 
 # https://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data/15423007
@@ -396,7 +400,10 @@ def dict_to_kv(dictionary, allow_none=True):
     Returns:
         str: Such as `path='Scheduler.ServerUpdate', value=True`
     """
-    return ', '.join([f'{k}={repr(v)}' for k, v in dictionary.items() if allow_none or v is not None])
+    for k, v in dictionary.items():
+        if 'eso' in k or 'hiv' in k:
+            return ',\n'.join([f'{k}={repr(v)}' for k, v in dictionary.items() if allow_none or v is not None])
+        return ', '.join([f'{k}={repr(v)}' for k, v in dictionary.items() if allow_none or v is not None])
 
 
 def server_timezone() -> timedelta:
@@ -657,6 +664,7 @@ def type_to_str(typ):
     return str(typ)
 
 
+<<<<<<< HEAD
 def time_delta(_timedelta):
     """
     Output the delta between two times
@@ -697,6 +705,46 @@ def time_delta(_timedelta):
     #     _time_dict[_key] = int(_time_delta//_sec[_key])
     #     _time_delta = _time_delta%_sec[_key]
     return _time_dict
+=======
+def readable_time(before: str, value: str) -> str:
+    """
+    Output the delta between two times
+    """
+    timedata = {
+        'value': value,
+        'time': '',
+        'time_name': 'NoData'
+    }
+    if not before:
+        timedata['value'] = 'None'
+        return timedata
+    try:
+        ti = datetime.fromisoformat(before)
+    except ValueError:
+        timedata['time_name'] = 'TimeError'
+        return timedata
+    if ti == DEFAULT_TIME:
+        timedata['value'] = 'None'
+        return timedata
+
+    diff = time.time() - ti.timestamp()
+    if diff < -1:
+        timedata['time_name'] = 'TimeError'
+    elif diff < 60:
+        timedata['time_name'] = 'JustNow'
+    elif diff < 5400:
+        timedata['time'] = int(diff // 60)
+        timedata['time_name'] = 'MinutesAgo'
+    elif diff < 129600:
+        timedata['time'] = int(diff // 3600)
+        timedata['time_name'] = 'HoursAgo'
+    elif diff < 1296000:
+        timedata['time'] = int(diff // 86400)
+        timedata['time_name'] = 'DaysAgo'
+    else:
+        timedata['time_name'] = 'LongTimeAgo'
+    return timedata
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
 
 
 if __name__ == '__main__':

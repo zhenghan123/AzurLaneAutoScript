@@ -46,16 +46,20 @@
       "name": "再起動設定",
       "help": ""
     },
+    "MainNormal": {
+      "name": "メイン海域(Normal)",
+      "help": ""
+    },
+    "MainHard": {
+      "name": "メイン海域(Hard)",
+      "help": ""
+    },
     "Main": {
       "name": "メイン海域",
       "help": ""
     },
     "Main2": {
       "name": "メイン海域-2",
-      "help": ""
-    },
-    "Main3": {
-      "name": "メイン海域-3",
       "help": ""
     },
     "GemsFarming": {
@@ -75,8 +79,13 @@
       "help": ""
     },
     "Event3": {
+<<<<<<< HEAD
       "name": "Task.Event3.name",
       "help": "Task.Event3.help"
+=======
+      "name": "イベント海域-3",
+      "help": ""
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     },
     "Raid": {
       "name": "Raid",
@@ -186,6 +195,10 @@
       "name": "Task.Minigame.name",
       "help": "Task.Minigame.help"
     },
+    "DashboardUpdate": {
+      "name": "Dashboard Update",
+      "help": ""
+    },
     "OpsiGeneral": {
       "name": "一般設定",
       "help": ""
@@ -266,9 +279,15 @@
       "name": "Game Manager(WIP)",
       "help": ""
     },
+<<<<<<< HEAD
     "SomethingSpecial": {
       "name": "Task.SomethingSpecial.name",
       "help": "Task.SomethingSpecial.help"
+=======
+    "GGManager": {
+      "name": "Task.GGManager.name",
+      "help": "Task.GGManager.help"
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     }
   },
   "Scheduler": {
@@ -834,9 +853,9 @@
       "help": "StopCondition.MapAchievement.help",
       "non_stop": "non_stop",
       "100_percent_clear": "100_percent_clear",
+      "threat_safe_without_3_stars": "threat_safe_without_3_stars",
       "map_3_stars": "map_3_stars",
-      "threat_safe": "threat_safe",
-      "threat_safe_without_3_stars": "threat_safe_without_3_stars"
+      "threat_safe": "threat_safe"
     },
     "StageIncrease": {
       "name": "StopCondition.StageIncrease.name",
@@ -874,8 +893,8 @@
       "diamond": "diamond"
     },
     "Fleet1Mode": {
-      "name": "Fleet.Fleet1Mode.name",
-      "help": "Fleet.Fleet1Mode.help",
+      "name": "Fleet1 Action Mode",
+      "help": "",
       "combat_auto": "combat_auto",
       "combat_manual": "combat_manual",
       "stand_still_in_the_middle": "stand_still_in_the_middle",
@@ -908,8 +927,8 @@
       "diamond": "diamond"
     },
     "Fleet2Mode": {
-      "name": "Fleet.Fleet2Mode.name",
-      "help": "Fleet.Fleet2Mode.help",
+      "name": "Fleet2 Action Mode",
+      "help": "",
       "combat_auto": "combat_auto",
       "combat_manual": "combat_manual",
       "stand_still_in_the_middle": "stand_still_in_the_middle",
@@ -1388,9 +1407,10 @@
     "TaskCall": {
       "name": "TaskBalancer.TaskCall.name",
       "help": "TaskBalancer.TaskCall.help",
+      "MainNormal": "MainNormal",
+      "MainHard": "MainHard",
       "Main": "Main",
-      "Main2": "Main2",
-      "Main3": "Main3"
+      "Main2": "Main2"
     }
   },
   "EventDaily": {
@@ -2151,6 +2171,16 @@
       "help": "Minigame.Collect.help"
     }
   },
+  "DashboardUpdate": {
+    "_info": {
+      "name": "DashboardUpdate._info.name",
+      "help": "DashboardUpdate._info.help"
+    },
+    "Update": {
+      "name": "DashboardUpdate.Update.name",
+      "help": "DashboardUpdate.Update.help"
+    }
+  },
   "Daily": {
     "_info": {
       "name": "Daily._info.name",
@@ -2463,8 +2493,13 @@
       "4": "4"
     },
     "FleetMode": {
+<<<<<<< HEAD
       "name": "OpsiFleet.FleetMode.name",
       "help": "OpsiFleet.FleetMode.help",
+=======
+      "name": "Action Mode",
+      "help": "",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "combat_auto": "combat_auto",
       "combat_manual": "combat_manual",
       "stand_still_in_the_middle": "stand_still_in_the_middle",
@@ -2677,6 +2712,13 @@
     "Repository": {
       "name": "反和谐仓库",
       "help": "一般不需要修改\n仓库 https://github.com/LmeSzinc/AzurLaneUncensored\n国内镜像（默认） https://gitee.com/LmeSzinc/AzurLaneUncensored"
+    },
+    "Option": {
+      "name": "AzurLaneUncensored.Option.name",
+      "help": "AzurLaneUncensored.Option.help",
+      "all": "all",
+      "main": "main",
+      "only_patch": "only_patch"
     }
   },
   "GameManager": {
@@ -2689,6 +2731,7 @@
       "help": "GameManager.AutoRestart.help"
     }
   },
+<<<<<<< HEAD
   "GGHandler": {
     "_info": {
       "name": "GGHandler._info.name",
@@ -2736,6 +2779,53 @@
       "help": "GGHandler.DisabledTask.help",
       "disable_all_dangerous_task": "disable_all_dangerous_task",
       "disable_guild_and_dangerous": "disable_guild_and_dangerous",
+=======
+  "GGManager": {
+    "_info": {
+      "name": "GGManager._info.name",
+      "help": "GGManager._info.help"
+    },
+    "Enable": {
+      "name": "GGManager.Enable.name",
+      "help": "GGManager.Enable.help"
+    },
+    "RestartEverytime": {
+      "name": "GGManager.RestartEverytime.name",
+      "help": "GGManager.RestartEverytime.help"
+    },
+    "GGMultiplyingFactor": {
+      "name": "GGManager.GGMultiplyingFactor.name",
+      "help": "GGManager.GGMultiplyingFactor.help"
+    },
+    "GGAction": {
+      "name": "GGManager.GGAction.name",
+      "help": "GGManager.GGAction.help",
+      "auto": "auto",
+      "manual": "manual"
+    },
+    "GGLuapath": {
+      "name": "GGManager.GGLuapath.name",
+      "help": "GGManager.GGLuapath.help"
+    },
+    "GGLuapathRecord": {
+      "name": "GGManager.GGLuapathRecord.name",
+      "help": "GGManager.GGLuapathRecord.help"
+    },
+    "GGPackageName": {
+      "name": "GGManager.GGPackageName.name",
+      "help": "GGManager.GGPackageName.help"
+    },
+    "GGLowLimit": {
+      "name": "GGManager.GGLowLimit.name",
+      "help": "GGManager.GGLowLimit.help"
+    },
+    "DisabledTask": {
+      "name": "GGManager.DisabledTask.name",
+      "help": "GGManager.DisabledTask.help",
+      "disable_guild_and_dangerous": "disable_guild_and_dangerous",
+      "disable_all_dangerous_task": "disable_all_dangerous_task",
+      "disable_meta_and_exercise": "disable_meta_and_exercise",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "disable_exercise": "disable_exercise",
       "enable_all": "enable_all"
     }
@@ -2756,6 +2846,7 @@
     "Ash": {
       "name": "PowerLimit.Ash.name",
       "help": "PowerLimit.Ash.help"
+<<<<<<< HEAD
     }
   },
   "ChangeShip": {
@@ -3100,6 +3191,12 @@
     "HasRestarted": {
       "name": "InstanceRestart.HasRestarted.name",
       "help": "InstanceRestart.HasRestarted.help"
+=======
+    },
+    "Coalition": {
+      "name": "PowerLimit.Coalition.name",
+      "help": "PowerLimit.Coalition.help"
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
     }
   },
   "Storage": {
@@ -3113,6 +3210,10 @@
     }
   },
   "Gui": {
+    "Login": {
+      "Login": "Please login below.",
+      "LoginError": "Wrong password!"
+    },
     "Aside": {
       "Install": "インストール",
       "Home": "Gui.Aside.Home",
@@ -3126,8 +3227,13 @@
       "Stop": "中止",
       "ScrollON": "自動スクロール ON",
       "ScrollOFF": "自動スクロール OFF",
+<<<<<<< HEAD
       "DashboardON": "Gui.Button.DashboardON",
       "DashboardOFF": "Gui.Button.DashboardOFF",
+=======
+      "DashboardON": "Fold",
+      "DashboardOFF": "Unfold",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "ClearLog": "ログクリーニング",
       "Setting": "設定",
       "CheckUpdate": "アップデータチェック",
@@ -3142,7 +3248,9 @@
       "DisableTranslateMode": "クリックして翻訳モードを中止します",
       "ConfigSaved": "コンフィグ設定は保存されました",
       "AlasIsRunning": "スケジューラーはもう実行しています",
-      "ClickToUpdate": "新しいアップデータがあります。クリックしてアップデータ"
+      "ClickToUpdate": "新しいアップデータがあります。クリックしてアップデータ",
+      "AlasRestart": "Alas will restart in 3 seconds",
+      "ReloadEnabled": "Reload not enabled"
     },
     "Status": {
       "Running": "実行中",
@@ -3159,10 +3267,13 @@
       "Translate": "翻訳",
       "Update": "アップデータ",
       "Remote": "遠隔操作",
-      "Utils": "ツール"
+      "Utils": "ツール",
+      "RaiseException": "Raise Exception",
+      "ForceRestart": "Force Restart"
     },
     "Overview": {
       "Scheduler": "スケジューラー",
+<<<<<<< HEAD
       "Dashboard": "Gui.Overview.Dashboard",
       "SecondsAgo": "Seconds ago",
       "MinutesAgo": "Minutes ago",
@@ -3183,11 +3294,35 @@
       "Medal": "Medal",
       "Core": "Core Data",
       "GuildCoin": "Guild Coin",
+=======
+      "Dashboard": "ダッシュボード",
+>>>>>>> 6ceb1a12a2d06cfe3490526fba56b6e49d4f0d31
       "Log": "ログ",
       "Running": "実行中",
       "Pending": "隊列中",
       "Waiting": "Waiting",
       "NoTask": "No Task"
+    },
+    "Dashboard": {
+      "TimeError": "TimeError",
+      "JustNow": "JustNow",
+      "MinutesAgo": "Minutes ago",
+      "HoursAgo": "Hours ago",
+      "DaysAgo": "Days ago",
+      "LongTimeAgo": "Long time ago",
+      "NoData": "No data",
+      "Oil": "Oil",
+      "Coin": "Coin",
+      "Gem": "Gem",
+      "Cube": "Cube",
+      "Pt": "Event Pt",
+      "YellowCoin": "Operation Supply Coin",
+      "PurpleCoin": "Special Item Token",
+      "ActionPoint": "Action Point",
+      "Merit": "Merit",
+      "Medal": "Medal",
+      "Core": "Core Data",
+      "GuildCoin": "Guild Coin"
     },
     "AddAlas": {
       "PopupTitle": "新しいコンフィグを追加",
