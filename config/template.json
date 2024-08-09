@@ -313,6 +313,9 @@
       "CommonCV": "any",
       "ChangeVanguard": "ship",
       "CommonDD": "any",
+      "ALLowLowVanguardLevel": true,
+      "FleetNumberInHardMode": 0,
+      "StopIFAutoNotEnsured": true,
       "CommissionLimit": true
     },
     "Campaign": {
@@ -458,6 +461,80 @@
     "StopCondition": {
       "OilLimit": 1000,
       "RunCount": 0,
+      "MapAchievement": "non_stop",
+      "StageIncrease": false,
+      "GetNewShip": false,
+      "ReachLevel": 0
+    },
+    "Fleet": {
+      "Fleet1": 1,
+      "Fleet1Formation": "double_line",
+      "Fleet1Mode": "combat_auto",
+      "Fleet1Step": 3,
+      "Fleet2": 2,
+      "Fleet2Formation": "double_line",
+      "Fleet2Mode": "combat_auto",
+      "Fleet2Step": 2,
+      "FleetOrder": "fleet1_mob_fleet2_boss"
+    },
+    "Submarine": {
+      "Fleet": 0,
+      "Mode": "do_not_use",
+      "AutoSearchMode": "sub_standby",
+      "DistanceToBoss": "2_grid_to_boss"
+    },
+    "Emotion": {
+      "Mode": "calculate",
+      "Fleet1Value": 119,
+      "Fleet1Record": "2020-01-01 00:00:00",
+      "Fleet1Control": "prevent_yellow_face",
+      "Fleet1Recover": "not_in_dormitory",
+      "Fleet1Oath": false,
+      "Fleet2Value": 119,
+      "Fleet2Record": "2020-01-01 00:00:00",
+      "Fleet2Control": "prevent_yellow_face",
+      "Fleet2Recover": "not_in_dormitory",
+      "Fleet2Oath": false
+    },
+    "HpControl": {
+      "UseHpBalance": false,
+      "UseEmergencyRepair": false,
+      "UseLowHpRetreat": false,
+      "HpBalanceThreshold": 0.2,
+      "HpBalanceWeight": "1000, 1000, 1000",
+      "RepairUseSingleThreshold": 0.3,
+      "RepairUseMultiThreshold": 0.6,
+      "LowHpRetreatThreshold": 0.3
+    },
+    "EnemyPriority": {
+      "EnemyScaleBalanceWeight": "default_mode"
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "Event3": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Event3",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "00:00"
+    },
+    "Campaign": {
+      "Name": "D3",
+      "Event": "campaign_main",
+      "Mode": "normal",
+      "UseClearMode": true,
+      "UseFleetLock": true,
+      "UseAutoSearch": true,
+      "Use2xBook": false,
+      "AmbushEvade": true
+    },
+    "StopCondition": {
+      "RunCount": 0,
+      "OilLimit": 1000,
       "MapAchievement": "non_stop",
       "StageIncrease": false,
       "GetNewShip": false,
@@ -1393,6 +1470,7 @@
       "ServerUpdate": "00:00, 12:00, 18:00"
     },
     "Exercise": {
+      "DelayUntilHoursBeforeNextUpdate": 12,
       "OpponentChooseMode": "max_exp",
       "OpponentTrial": 1,
       "ExerciseStrategy": "aggressive",
@@ -1622,6 +1700,7 @@
     },
     "OpsiFleet": {
       "Fleet": 1,
+      "FleetMode": "combat_auto",
       "Submarine": false
     },
     "Storage": {
@@ -1676,6 +1755,7 @@
     },
     "OpsiFleet": {
       "Fleet": 1,
+      "FleetMode": "combat_auto",
       "Submarine": false
     },
     "Storage": {
@@ -1696,6 +1776,7 @@
     },
     "OpsiFleet": {
       "Fleet": 1,
+      "FleetMode": "combat_auto",
       "Submarine": false
     },
     "Storage": {
@@ -1732,6 +1813,7 @@
     },
     "OpsiFleet": {
       "Fleet": 1,
+      "FleetMode": "combat_auto",
       "Submarine": false
     },
     "Storage": {
@@ -1752,6 +1834,11 @@
     },
     "OpsiFleetFilter": {
       "Filter": "Fleet-4 > CallSubmarine > Fleet-2 > Fleet-3 > Fleet-1"
+    },
+    "OpsiFleet": {
+      "Fleet": 1,
+      "FleetMode": "combat_auto",
+      "Submarine": true
     },
     "Storage": {
       "Storage": {}
@@ -1794,6 +1881,7 @@
     },
     "OpsiFleet": {
       "Fleet": 1,
+      "FleetMode": "combat_auto",
       "Submarine": false
     },
     "Storage": {
@@ -1814,6 +1902,7 @@
     },
     "OpsiFleet": {
       "Fleet": 1,
+      "FleetMode": "combat_auto",
       "Submarine": false
     },
     "Storage": {
@@ -1870,6 +1959,91 @@
   "GameManager": {
     "GameManager": {
       "AutoRestart": true
+    },
+    "GGHandler": {
+      "Enabled": false,
+      "GGMethod": "u2",
+      "RestartATX": false,
+      "GGPackageName": "com.",
+      "AutoRestartGG": false,
+      "RestartEverytime": true,
+      "RepushLua": true,
+      "GGMultiplyingFactor": 200,
+      "Timeout": 120,
+      "DisabledTask": "disable_all_dangerous_task"
+    },
+    "PowerLimit": {
+      "Exercise": 16500,
+      "Raid": 16500,
+      "Ash": 16500
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "Dashboard": {
+    "Oil": {
+      "Value": 0,
+      "Limit": 0,
+      "Color": "^000000",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Coin": {
+      "Value": 0,
+      "Limit": 0,
+      "Color": "^FFAA33",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Gem": {
+      "Value": 0,
+      "Color": "^FF3333",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Pt": {
+      "Value": 0,
+      "Color": "^00BFFF",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Cube": {
+      "Value": 0,
+      "Color": "^33FFFF",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "ActionPoint": {
+      "Value": 0,
+      "Total": 0,
+      "Color": "^0000FF",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "YellowCoin": {
+      "Value": 0,
+      "Color": "^FF8800",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "PurpleCoin": {
+      "Value": 0,
+      "Color": "^7700BB",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Core": {
+      "Value": 0,
+      "Color": "^AAAAAA",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Medal": {
+      "Value": 0,
+      "Color": "^FFDD00",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Merit": {
+      "Value": 0,
+      "Color": "^FFFF00",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "GuildCoin": {
+      "Value": 0,
+      "Color": "^AAAAAA",
+      "Record": "2020-01-01 00:00:00"
     },
     "Storage": {
       "Storage": {}
