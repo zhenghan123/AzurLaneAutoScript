@@ -51,6 +51,8 @@ class Enhancement(Dock):
 
         self.ship_info_enter(
             CARD_GRIDS[(0, 0)], check_button=SHIP_DETAIL_CHECK, long_click=False)
+		
+			
         return True
 
     def _enhance_quit(self):

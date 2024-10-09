@@ -92,6 +92,10 @@ Error:
 Optimization:
   ScreenshotInterval: 0.3
   CombatScreenshotInterval: 1.0
+  ClickMaxRecord: 15
+  SingleButtonMaxCount: 12
+  MultiButtonMaxCount1: 6
+  MultiButtonMaxCount2: 6
   TaskHoardingDuration: 0
   WhenTaskQueueEmpty:
     value: goto_main
@@ -278,8 +282,40 @@ GemsFarming:
   CommonDD:
     value: any
     option: [ any, favourite, aulick_or_foote , cassin_or_downes, z20_or_z21 ]
-  CommissionLimit: true
 
+  CommissionLimit: true
+FlagshipFilter:
+  Sort:
+    value: 'default'
+    option: ['default', 'rarity', 'level', 'total', 'join', 'intimacy', 'stat']
+  Index:
+    value: 'default'
+    option: ['default', 'all', 'vanguard', 'main', 'dd', 'cl', 'ca', 'bb', 'cv', 'repair', 'ss', 'others', 'not_available']
+  Faction:
+    value: 'default'
+    option: ['default', 'all', 'eagle', 'royal', 'sakura', 'iron', 'dragon', 'sardegna', 'northern', 'iris', 'vichya', 'other', 'not_available']
+  Rarity:
+    value: 'default'
+    option: ['default', 'all', 'common', 'rare', 'elite', 'super_rare', 'ultra']
+  Extra:
+    value: 'default'
+    option: ['default', 'no_limit', 'has_skin', 'can_retrofit', 'enhanceable', 'can_limit_break', 'not_level_max', 'can_awaken', 'can_awaken_plus', 'special', 'oath_skin', 'not_available']
+VanguardFilter:
+  Sort:
+    value: 'default'
+    option: ['default', 'rarity', 'level', 'total', 'join', 'intimacy', 'stat']
+  Index:
+    value: 'default'
+    option: ['default', 'all', 'vanguard', 'main', 'dd', 'cl', 'ca', 'bb', 'cv', 'repair', 'ss', 'others', 'not_available']
+  Faction:
+    value: 'default'
+    option: ['default', 'all', 'eagle', 'royal', 'sakura', 'iron', 'dragon', 'sardegna', 'northern', 'iris', 'vichya', 'other', 'not_available']
+  Rarity:
+    value: 'default'
+    option: ['default', 'all', 'common', 'rare', 'elite', 'super_rare', 'ultra']
+  Extra:
+    value: 'default'
+    option: ['default', 'no_limit', 'has_skin', 'can_retrofit', 'enhanceable', 'can_limit_break', 'not_level_max', 'can_awaken', 'can_awaken_plus', 'special', 'oath_skin', 'not_available']
 # ==================== Event ====================
 
 EventGeneral:
@@ -452,7 +488,7 @@ GeneralShop:
   UseGems: false
   Refresh: false
   BuySkinBox: false
-  ConsumeCoins: false
+  ConsumeCoins: 550000
   Filter: |-
     BookRedT3 > BookYellowT3 > BookBlueT3 > BookRedT2
     > Cube
@@ -623,6 +659,9 @@ Hard:
     value: 1
     option: [ 1, 2 ]
 Exercise:
+  DelayUntilHoursBeforeNextUpdate:
+    value: 12
+    option: [ 1, 2, 3, 4, 5, 12]
   OpponentChooseMode:
     value: max_exp
     option: [ max_exp, easiest, leftmost, easiest_else_exp ]
@@ -668,6 +707,9 @@ OpsiFleet:
   Fleet:
     value: 1
     option: [ 1, 2, 3, 4 ]
+  FleetMode:
+    value: combat_auto
+    option: [ combat_auto, combat_manual, stand_still_in_the_middle, hide_in_bottom_left ]
   Submarine: false
 OpsiExplore:
   SpecialRadar: false
@@ -712,6 +754,8 @@ OpsiMeowfficerFarming:
     option: [ 3, 4, 5, 6, 10 ]
   TargetZone:
     value: 0
+HigherPriority:
+  Enable: false
 OpsiHazard1Leveling:
   TargetZone:
     value: 0
@@ -743,3 +787,168 @@ AzurLaneUncensored:
     display: disabled
 GameManager:
   AutoRestart: true
+
+GGHandler:
+  Enabled: false
+  GGMethod:
+    value: u2
+    option: [ u2 ]
+  RestartATX: false
+  GGPackageName: com.
+  AutoRestartGG: false
+  RestartEverytime:
+    value: true
+#    display: disabled
+  RepushLua: true
+  GGMultiplyingFactor: 200
+  Timeout: 1200
+  DisabledTask:
+    value: disable_all_dangerous_task
+    option: [
+      disable_all_dangerous_task,
+      disable_guild_and_dangerous,
+      disable_exercise,
+      enable_all,
+    ]
+PowerLimit:
+  Exercise: 16500
+  Raid: 16500
+  Ash: 16500
+ChangeShip:
+  Enable: false
+  PushLua: false
+  Timeout: 90
+  ShipData:
+    type: textarea
+    value: |-
+      106021;1;6;4
+      107041;1;6;4
+      206011;1;6;4
+      107011;1;6;4
+      105011;1;5;6
+      105021;1;5;6
+ChangeAttribute:
+  Enable: false
+  PushLua: false
+  Timeout: 600
+  ShipData:
+    type: textarea
+    value: ''
+
+InfiniteDelay:
+  Commission:
+    value: false
+  Research:
+    value: false
+  Reward:
+    value: false
+TurnOffForcedOnSettings:
+  OpsiMeowfficerFarmingFromOpsiHazard1Leveling:
+    value: false
+  OpsiHazard1LevelingYellowCoinLimit:
+    value: false
+
+
+# ==================== Dashboard ====================
+Oil:
+  Value: 0
+  Limit: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+Coin:
+  Value: 0
+  Limit: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+Gem:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+Pt:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+YellowCoin:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+PurpleCoin:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+ActionPoint:
+  Value: 0
+  Total: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+Merit:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+Cube:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+Core:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+Medal:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+GuildCoin:
+  Value: 0
+  Color:
+    value: ^000000
+    display: hide
+  Record: 2020-01-01 00:00:00
+
+
+
+# ==================== AutoRestart ====================
+AutoRestart:
+  Enabled:
+    type: checkbox
+    value: false
+  AttemptsToRestart:
+    type: input
+    value: 114514
+  NotifyWhenAutoRestart:
+    type: checkbox
+    value: false
+InstanceRestart:
+  Enabled:
+    type: checkbox
+    value: false
+  AttemptsToRestart:
+    type: input
+    value: 114514
+  NotifyWhenAutoRestart:
+    type: checkbox
+    value: false
+  HasRestarted:
+    value: 0
+    display: hide

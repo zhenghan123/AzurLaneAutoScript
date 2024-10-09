@@ -535,7 +535,9 @@ class OSFleet(OSCamera, Combat, Fleet, OSAsh):
                     logger.warning('Trying to enter month boss hard mode but is_exclamation exists')
                     self.relative_goto(has_fleet_step=True, near_by=True, is_exclamation=True)
                 else:
+
                     self.relative_goto(has_fleet_step=True, near_by=True, is_question=True)
+
 
     def question_goto(self, has_fleet_step=False):
         logger.hr('Question goto')

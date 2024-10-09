@@ -14,12 +14,17 @@ Button:
   Stop:
   ScrollON:
   ScrollOFF:
+  DashboardON:
+  DashboardOFF:
   ClearLog:
   Setting:
   CheckUpdate:
   ClickToUpdate:
   RetryUpdate:
   CancelUpdate:
+  OneClickClear:
+  Confirm:
+  Cancel:
 
 Toast:
   DisableTranslateMode:
@@ -46,6 +51,26 @@ MenuDevelop:
 
 Overview:
   Scheduler:
+  Dashboard:
+  SecondsAgo:
+  MinutesAgo:
+  HoursAgo:
+  DaysAgo:
+  MonthsAgo:
+  YearsAgo:
+  NoData:
+  Oil:
+  Coin:
+  Gem:
+  Cube:
+  Pt:
+  YellowCoin:
+  PurpleCoin:
+  ActionPoint:
+  Merit:
+  Medal:
+  Core:
+  GuildCoin:
   Log:
   Running:
   Pending:
@@ -114,3 +139,4 @@ Text:
   Clear:
   EnterPassword:
   ChooseFile:
+  ClearAllTaskConfirm:

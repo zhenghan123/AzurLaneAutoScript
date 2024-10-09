@@ -6,6 +6,7 @@ import re
 
 from module.campaign.campaign_base import CampaignBase
 from module.campaign.campaign_event import CampaignEvent
+from module.shop.shop_status import ShopStatus
 from module.campaign.campaign_ui import MODE_SWITCH_1
 from module.config.config import AzurLaneConfig
 from module.exception import CampaignEnd, RequestHumanTakeover, ScriptEnd
@@ -13,9 +14,10 @@ from module.handler.fast_forward import map_files, to_map_file_name
 from module.logger import logger
 from module.notify import handle_notify
 from module.ui.page import page_campaign
+from module.config.utils import deep_get, deep_set
+from datetime import datetime, timedelta
 
-
-class CampaignRun(CampaignEvent):
+class CampaignRun(CampaignEvent, ShopStatus):
     folder: str
     name: str
     stage: str
@@ -59,6 +61,9 @@ class CampaignRun(CampaignEvent):
             logger.critical(f'Possible reason #1: This event ({folder}) does not have {name}')
             logger.critical(f'Possible reason #2: You are using an old Alas, '
                             'please check for update, or make map files yourself using dev_tools/map_extractor.py')
+            if self.config.SERVER == 'cn':
+                logger.critical(f'Possible reason #3: 对于看不懂以上英文的用户，此处是友情翻译：'
+                            f'还没更新呢急你妈急急急急。要么给极彩阿丽艾塔上总督催更，要么滚回去自己写')
             raise RequestHumanTakeover
 
         config = copy.deepcopy(self.config).merge(self.module.Config())
@@ -95,7 +100,10 @@ class CampaignRun(CampaignEvent):
             return True
         # Oil limit
         if oil_check:
-            if self.get_oil() < max(500, self.config.StopCondition_OilLimit):
+            self.status_get_gems()
+            self.get_coin()
+            _oil = self.get_oil()
+            if _oil < max(500, self.config.StopCondition_OilLimit):
                 logger.hr('Triggered stop condition: Oil limit')
                 self.config.task_delay(minute=(120, 240))
                 return True
@@ -318,9 +326,14 @@ class CampaignRun(CampaignEvent):
             in: page_campaign
         """
         if self.campaign.commission_notice_show_at_campaign():
-            logger.info('Commission notice found')
-            self.config.task_call('Commission', force_call=True)
-            self.config.task_stop('Commission notice found')
+            InfiniteDelayCommission = deep_get(self.config.data, "SomethingSpecial.InfiniteDelay.Commission")
+            if InfiniteDelayCommission:
+                logger.warning("Commission notice found, but skip to call task 'Commission' and delay it")
+                self.config.task_delay(target=datetime.now() + timedelta(hours=6, seconds=-1), task="Commission")
+            else:
+                logger.info('Commission notice found')
+                self.config.task_call('Commission', force_call=True)
+                self.config.task_stop('Commission notice found')
 
     def run(self, name, folder='campaign_main', mode='normal', total=0):
         """
@@ -386,6 +399,11 @@ class CampaignRun(CampaignEvent):
             if self.triggered_stop_condition(oil_check=not self.campaign.is_in_auto_search_menu()):
                 break
 
+            # Update config
+            if len(self.config.modified):
+                logger.info('Updating config for dashboard')
+                self.config.update()
+
             # Run
             self.device.stuck_record_clear()
             self.device.click_record_clear()
@@ -396,6 +414,10 @@ class CampaignRun(CampaignEvent):
                 logger.info(str(e))
                 break
 
+            # Update config
+            if len(self.campaign.config.modified):
+                logger.info('Updating config for dashboard')
+                self.campaign.config.update()
             # After run
             self.run_count += 1
             if self.config.StopCondition_RunCount:
